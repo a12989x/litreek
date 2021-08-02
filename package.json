@@ -1,20 +1,38 @@
 {
-  "name": "linktree-app",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "11.0.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
-  },
-  "devDependencies": {
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.0.1"
-  }
+	"name": "linktree-app",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"prettier": "prettier --check .",
+		"next-lint": "next lint",
+		"prettier:lint": "prettier --write .",
+		"test-all": "npm run prettier && npm run lint && npm run build",
+		"prepare": "husky install"
+	},
+	"dependencies": {
+		"framer-motion": "^4.1.17",
+		"next": "11.0.1",
+		"next-seo": "^4.26.0",
+		"react": "17.0.2",
+		"react-dom": "17.0.2",
+		"sass": "^1.37.1"
+	},
+	"devDependencies": {
+		"cz-conventional-changelog": "^3.3.0",
+		"eslint": "^7.32.0",
+		"eslint-config-google": "^0.14.0",
+		"eslint-config-next": "^11.0.1",
+		"eslint-config-prettier": "^8.3.0",
+		"husky": "^7.0.1",
+		"prettier": "^2.3.2"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	}
 }
