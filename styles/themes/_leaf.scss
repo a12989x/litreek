@@ -1,0 +1,62 @@
+[data-theme='leaf'] {
+	$text: #fff;
+	$background: #000;
+	$accent: #39e09b;
+
+	body {
+		background-color: $background;
+		transition: background 0.2s ease-in-out;
+
+		main {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			color: $text;
+
+			img {
+				margin: auto;
+			}
+
+			h1 {
+				margin-bottom: 0;
+			}
+
+			.subtle {
+				margin-top: 0.5rem;
+				font-size: 1rem;
+				font-weight: 400;
+				opacity: 0.6;
+			}
+
+			ul {
+				margin-top: 0.5rem;
+				width: 100%;
+				text-align: center;
+				display: grid;
+				row-gap: 1rem;
+
+				.header {
+					font-size: 1rem;
+					font-weight: 400;
+					text-transform: uppercase;
+				}
+
+				.link {
+					padding: 1.5rem 1.5rem;
+					width: 100%;
+					display: block;
+					color: $background;
+					font-weight: 600;
+					background-color: $accent;
+					border: 3px solid $accent;
+					transition: all 0.2s ease-in-out;
+
+					&:hover {
+						color: $accent;
+						background-color: $background;
+					}
+				}
+			}
+		}
+	}
+}
