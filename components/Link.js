@@ -1,8 +1,12 @@
-const Link = () => {
+import NextLink from 'next/link';
+
+const Link = ({ title, url, background }) => {
 	return (
-		<div>
-			<p>Link Component</p>
-		</div>
+		<NextLink href={url}>
+			<a target='_blank' rel='noopener noreferrer' className='link'>
+				{title}
+			</a>
+		</NextLink>
 	);
 };
 
