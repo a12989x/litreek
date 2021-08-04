@@ -7,29 +7,20 @@ const config = {
 		{ header: 'Project' },
 		{
 			title: '💻 Repository',
-			url: 'https://github.com/a12989x',
-			backgroundColor: '',
+			url: 'https://github.com/a12989x/litreek/',
 		},
 		{ header: 'Me' },
 		{
 			title: '🌐 Website',
 			url: 'https://codaxx.ml/',
-			backgroundColor: '',
 		},
 		{
 			title: '💻 GitHub',
 			url: 'https://github.com/a12989x/',
-			backgroundColor: '',
 		},
 		{
 			title: '📺 YouTube',
 			url: 'https://www.youtube.com/channel/UCMY0GhV1HuX4XdbgalC77VQ',
-			backgroundColor: '',
-		},
-		{
-			title: '📃 CV',
-			url: 'http://codax.leancv.com/',
-			backgroundColor: '',
 		},
 	],
 };
