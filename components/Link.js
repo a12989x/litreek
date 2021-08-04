@@ -1,6 +1,6 @@
 import NextLink from 'next/link';
 
-const Link = ({ title, url, background }) => {
+const Link = ({ title, url }) => {
 	return (
 		<NextLink href={url}>
 			<a target='_blank' rel='noopener noreferrer' className='link'>
