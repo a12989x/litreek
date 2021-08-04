@@ -39,3 +39,80 @@ The goal of [Litreek](https://github.com/a12989x/litreek/) is to have a second c
 -   [Prettier](https://prettier.io/)
 -   [Husky](https://typicode.github.io/husky/#/)
 -   [cz-cli](http://commitizen.github.io/cz-cli/)
+
+## Set up ⚙️
+
+To configure [Litreek](https://github.com/a12989x/litreek/) you need to edit the default data in `config.js` file.
+
+```javascript
+const config = {
+	name: 'YOUR NAME',
+	subtle: 'CAREER', // Or a little description about you.
+};
+```
+
+### Avatar
+
+By default you can replace the default value with your GitHub profile image link, but if you want change the image domain with other like twitter, you need to add the domain in the `next.config.js` file.
+
+```javascript
+// config.js
+{
+	// ...
+	avatar: 'https://pbs.twimg.com/profile_images/1374023592523005952/lfkEIHsx_400x400.jpg';
+	// ...
+}
+```
+
+```javascript
+// next.config.js
+{
+	images: {
+		domains: ['pbs.twimg.com'];
+	}
+}
+```
+
+### Themes
+
+You can select a theme for your litreek page between [this themes](https://github.com/a12989x/litreek) or you can create one and share it with us.
+
+```javascript
+{
+	theme: 'leaf';
+}
+```
+
+### Links
+
+You can have a header separator between your links.
+
+```javascript
+{
+	links: [
+		{ header: 'Project' },
+		{
+			title: '💻 Repository',
+			url: 'https://github.com/a12989x',
+			backgroundColor: '',
+		},
+		{ header: 'Me' },
+		{
+			title: '🌐 Website',
+			url: 'https://codaxx.ml/',
+			backgroundColor: '',
+		},
+	];
+}
+```
+
+## TODOs ✅️
+
+-   Create more themes.
+-   Video option as background.
+
+## License
+
+[Litreek](https://github.com/a12989x/litreek/) is licensed under the terms of [MIT](https://choosealicense.com/licenses/mit/)
+
+**Built with ❤️ by [Codax](https://github.com/a12989x/)**
