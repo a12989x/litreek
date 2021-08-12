@@ -14,7 +14,7 @@ const SEO = {
 		description: `Hi, I'm ${name} and this is a list of all my link neede to know me. Visit my links and let's chat`,
 		images: [
 			{
-				url: 'https://fastfeedback.io/og.png',
+				url: 'https://litreek.vercel.app/og.png',
 				alt: `${name} - Litreek`,
 				width: 1280,
 				height: 720,
