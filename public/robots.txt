@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://litreek.vercel.app//sitemap.xml
