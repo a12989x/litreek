@@ -1,6 +1,4 @@
-import config from './config';
-
-const { name } = config;
+const name = 'Alexis Guzman';
 
 const SEO = {
 	title: `${name} - Litreek`,
