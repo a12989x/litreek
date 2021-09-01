@@ -1,6 +1,7 @@
-# Litreek
+<h1 align="center">Litreek</h1>
 
-**An custom tree links app fast 😎, free 🤯 and opensource. 💪**
+<p align="center"><b>An custom tree links app fast 😎, free 🤯 and opensource. 💪</b></p>
+<p align="center">Built with ❤️ by <a href="https://github.com/a12989x/">Codax</a></p>
 
 ## About ℹ️
 
@@ -24,11 +25,10 @@ The goal of [Litreek](https://github.com/a12989x/litreek/) is to have a second c
 
 ## Installation 🚀
 
--   Fork the repository.
 -   Clone your repository locally:
 -   Run `npm install` to install the normal and developer dependencies.
--   Change your data from `config.js` file.
--   commit youy changes and deploy it.
+-   Change your data from `config.json` file (view [set up](#set-up-%EF%B8%8F) section).
+-   Commit your changes and deploy it.
 
 ## Tech Stack 🤖
 
@@ -44,11 +44,11 @@ The goal of [Litreek](https://github.com/a12989x/litreek/) is to have a second c
 
 To configure [Litreek](https://github.com/a12989x/litreek/) you need to edit the default data in `config.js` file.
 
-```javascript
-const config = {
-	name: 'YOUR NAME',
-	subtle: 'CAREER', // Or a little description about you.
-};
+```json
+{
+	"name": "YOUR NAME",
+	"subtle": "CAREER" // Or a little description about you.
+}
 ```
 
 ### Avatar
@@ -56,10 +56,10 @@ const config = {
 By default you can replace the default value with your GitHub profile image link, but if you want change the image domain with other like twitter, you need to add the domain in the `next.config.js` file.
 
 ```javascript
-// config.js
+// config.json
 {
 	// ...
-	avatar: 'https://pbs.twimg.com/profile_images/1374023592523005952/lfkEIHsx_400x400.jpg';
+	"avatar": "https://pbs.twimg.com/profile_images/1374023592523005952/lfkEIHsx_400x400.jpg";
 	// ...
 }
 ```
@@ -75,34 +75,44 @@ By default you can replace the default value with your GitHub profile image link
 
 ### Themes
 
-You can select a theme for your litreek page between [this themes](https://github.com/a12989x/litreek) or you can create one and share it with us.
+You can select a theme for your litreek page between `/styles/themes` or you can create one and share it with us. Also you need change the `defaultTheme` value in `ThemeProvider` on `_app.js` file.
+
+```json
+// config.json
+{
+	// ...
+	"theme": "leaf"
+	// ...
+}
+```
 
 ```javascript
-{
-	theme: 'leaf';
-}
+// _app.js
+<ThemeProvider
+	defaultTheme='leaf'
+	// ...
+>
+// ...
 ```
 
 ### Links
 
 You can have a header separator between your links.
 
-```javascript
+```json
 {
-	links: [
-		{ header: 'Project' },
+	"links": [
+		{ "header": "Project" }, // separator
 		{
-			title: '💻 Repository',
-			url: 'https://github.com/a12989x',
-			backgroundColor: '',
+			"title": "💻 Repository",
+			"url": "https://github.com/a12989x"
 		},
-		{ header: 'Me' },
+		{ "header": "Me" }, // separator
 		{
-			title: '🌐 Website',
-			url: 'https://codaxx.ml/',
-			backgroundColor: '',
-		},
-	];
+			"title": "🌐 Website",
+			"url": "https://codaxx.ml/"
+		}
+	]
 }
 ```
 
@@ -114,5 +124,3 @@ You can have a header separator between your links.
 ## License
 
 [Litreek](https://github.com/a12989x/litreek/) is licensed under the terms of [MIT](https://choosealicense.com/licenses/mit/)
-
-**Built with ❤️ by [Codax](https://github.com/a12989x/)**
