@@ -3,20 +3,27 @@ import Image from 'next/image';
 import Header from '../components/Header';
 import Link from '../components/Link';
 
-import config from '../config';
+export const getStaticProps = async () => {
+	const config = await import('../config.json').then((res) => res.default);
 
-const { name, subtle, avatar, links } = config;
+	return { props: { config } };
+};
 
-const Home = () => {
+const Home = ({ config }) => {
 	return (
 		<main>
-			<Image src={avatar} alt={name} height='100' width='100' />
+			<Image
+				src={config.avatar}
+				alt={config.name}
+				height='100'
+				width='100'
+			/>
 
-			<h1>{name}</h1>
-			{subtle && <h2 className='subtle'>{subtle}</h2>}
+			<h1>{config.name}</h1>
+			{config.subtle && <h2 className='subtle'>{config.subtle}</h2>}
 
 			<ul>
-				{links.map((link, index) => (
+				{config.links.map((link, index) => (
 					<li key={index}>
 						{link.header ? (
 							<Header {...link} />
