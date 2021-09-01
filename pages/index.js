@@ -11,7 +11,7 @@ export const getStaticProps = async () => {
 
 const Home = ({ config }) => {
 	return (
-		<main>
+		<main className='litreek'>
 			<Image
 				src={config.avatar}
 				alt={config.name}
@@ -19,12 +19,14 @@ const Home = ({ config }) => {
 				width='100'
 			/>
 
-			<h1>{config.name}</h1>
-			{config.subtle && <h2 className='subtle'>{config.subtle}</h2>}
+			<h1 className='litreek__name'>{config.name}</h1>
+			{config.subtle && (
+				<h2 className='litreek__subtle'>{config.subtle}</h2>
+			)}
 
-			<ul>
+			<ul className='litreek__links'>
 				{config.links.map((link, index) => (
-					<li key={index}>
+					<li key={index} className='litreek__item'>
 						{link.header ? (
 							<Header {...link} />
 						) : (
