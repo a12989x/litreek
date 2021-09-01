@@ -3,15 +3,12 @@ import { DefaultSeo } from 'next-seo';
 
 import '../styles/globals.scss';
 
-import config from '../config';
 import SEO from '../next-seo.config';
-
-const { theme } = config;
 
 const MyApp = ({ Component, pageProps }) => {
 	return (
 		<ThemeProvider
-			defaultTheme={theme}
+			defaultTheme='noir'
 			enableSystem={false}
 			themes={['leaf', 'snow', 'noir']}
 		>
