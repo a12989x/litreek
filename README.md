@@ -47,7 +47,7 @@ To configure [Litreek](https://github.com/a12989x/litreek/) you need to edit the
 ```json
 {
 	"name": "YOUR NAME",
-	"subtle": "CAREER" // Or a little description about you.
+	"subtle": "CAREER"
 }
 ```
 
@@ -55,12 +55,10 @@ To configure [Litreek](https://github.com/a12989x/litreek/) you need to edit the
 
 By default you can replace the default value with your GitHub profile image link, but if you want change the image domain with other like twitter, you need to add the domain in the `next.config.js` file.
 
-```javascript
+```json
 // config.json
 {
-	// ...
 	"avatar": "https://pbs.twimg.com/profile_images/1374023592523005952/lfkEIHsx_400x400.jpg";
-	// ...
 }
 ```
 
@@ -80,9 +78,7 @@ You can select a theme for your litreek page between `/styles/themes` or you can
 ```json
 // config.json
 {
-	// ...
 	"theme": "leaf"
-	// ...
 }
 ```
 
@@ -102,12 +98,12 @@ You can have a header separator between your links.
 ```json
 {
 	"links": [
-		{ "header": "Project" }, // separator
+		{ "header": "Project" },
 		{
 			"title": "💻 Repository",
 			"url": "https://github.com/a12989x"
 		},
-		{ "header": "Me" }, // separator
+		{ "header": "Me" },
 		{
 			"title": "🌐 Website",
 			"url": "https://codaxx.ml/"
