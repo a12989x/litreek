@@ -4,7 +4,7 @@ import FooterLink from './FooterLink';
 
 const Footer = () => {
   return (
-    <footer className='mx-auto max-w-screen-xl px-8 py-20'>
+    <footer className='mx-auto max-w-screen-xl px-8 py-20 text-sm'>
       <nav className='flex justify-between'>
         <ul className='flex gap-4'>
           <li>
