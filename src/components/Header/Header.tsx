@@ -4,7 +4,8 @@ import NavLink from './NavLink';
 
 const Header = () => {
   return (
-    <header className='sticky top-0'>
+    <header className='sticky top-0 z-20'>
+      <div className='bg-grey-100/20 absolute top-0 -z-10 h-24 w-full backdrop-blur [mask-image:linear-gradient(to_bottom,#000_4.8rem,transparent)]' />
       <nav className='mx-auto max-w-screen-xl px-8 py-4'>
         <ul className='flex h-10 items-center gap-6'>
           <li>
