@@ -25,7 +25,12 @@ const Home: NextPage = () => {
               <Link href='/login'>Login</Link>
             </li>
             <li>
-              <Link href='/signup'>Sign up &mdash; it&apos;s free</Link>
+              <Link href='/signup'>
+                Sign up
+                <span className='font-normal italic'>
+                  &nbsp; &mdash; it&apos;s free
+                </span>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -57,7 +62,10 @@ const Home: NextPage = () => {
               intent='cta'
               className='bg-none'
             >
-              Claim &mdash; it&apos;s free
+              Claim{' '}
+              <span className='font-normal italic'>
+                &nbsp; &mdash; it&apos;s free
+              </span>
             </Button>
           </form>
         </main>
