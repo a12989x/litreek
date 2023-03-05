@@ -4,15 +4,14 @@ import { cn } from '~/utils';
 import ButtonOrLink, { type Props as ButtonOrLinkProps } from './ButtonOrLink';
 
 const linkStyles = tv({
-  base: cn(
-    'underline decoration-zinc-700 decoration-wavy decoration-from-font transition-colors',
-    'dark:decoration-zinc-300',
-    'hover:text-black hover:decoration-black',
-    'dark:hover:text-white dark:hover:decoration-white',
-    'outline-2 outline-offset-1 outline-current',
-    'focus:outline'
-  ),
-  variants: {},
+  base: cn(),
+  variants: {
+    intent: {
+      nav: cn(
+        'text-underline rounded-lg hover:bg-purple-200 inline-flex h-8 items-center justify-center px-3 text-sm font-medium transition-colors'
+      ),
+    },
+  },
   defaultVariants: {},
 });
 
@@ -23,19 +22,25 @@ interface Props extends ButtonOrLinkProps, LinkVariants {
   isExternal?: boolean;
 }
 
-const Link = ({ className, href, isExternal, ...props }: Props) => {
+const Link = ({ intent, className, href, isExternal, ...props }: Props) => {
   if (isExternal)
     return (
       <ButtonOrLink
         target='_blank'
         rel='noopener noreferrer'
-        className={linkStyles({ className })}
+        className={linkStyles({ intent, className })}
         href={href}
         {...props}
       />
     );
 
-  return <ButtonOrLink className={linkStyles({ className })} {...props} />;
+  return (
+    <ButtonOrLink
+      className={linkStyles({ intent, className })}
+      href={href}
+      {...props}
+    />
+  );
 };
 
 export default Link;
