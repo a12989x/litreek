@@ -4,13 +4,15 @@ import { cn } from '~/utils';
 import ButtonOrLink, { type Props as ButtonOrLinkProps } from './ButtonOrLink';
 
 const buttonStyles = tv({
-  base: 'flex w-fit items-center justify-center border font-medium',
+  base: 'flex w-fit items-center justify-center font-bold',
   variants: {
     intent: {
       cta: cn(
-        'hover:animate-cta-bg rounded-lg border-0 bg-gradient-to-r from-pink-500 via-indigo-500 to-purple-500 bg-[length:165%] text-white transition-colors'
+        'hover:animate-cta-bg rounded-lg bg-gradient-to-r from-pink-500 via-indigo-500 to-purple-500 bg-[length:165%] text-white transition-colors'
       ),
-      primary: cn(''),
+      primary: cn(
+        'rounded-lg bg-black text-white transition-colors hover:bg-gray-800'
+      ),
     },
     size: {
       smal: 'px-3 h-7 text-xs',
@@ -19,7 +21,7 @@ const buttonStyles = tv({
     },
   },
   defaultVariants: {
-    primary: 'primary',
+    intent: 'primary',
     size: 'medium',
   },
 });
