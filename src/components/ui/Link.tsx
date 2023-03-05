@@ -8,7 +8,7 @@ const linkStyles = tv({
   variants: {
     intent: {
       nav: cn(
-        'text-underline rounded-lg hover:bg-purple-200 inline-flex h-8 items-center justify-center px-3 text-sm font-medium transition-colors'
+        'text-underline inline-flex h-8 items-center justify-center rounded-lg px-3 text-sm font-medium transition-colors hover:bg-purple-200'
       ),
     },
   },
