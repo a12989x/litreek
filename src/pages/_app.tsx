@@ -5,6 +5,7 @@ import { SessionProvider } from 'next-auth/react';
 import { api } from '~/utils/api';
 
 import '~/styles/globals.css';
+import { Layout } from '~/components';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -25,7 +26,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
       `}</style>
 
       <SessionProvider session={session}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </SessionProvider>
     </>
   );
