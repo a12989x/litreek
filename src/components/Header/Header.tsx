@@ -16,7 +16,7 @@ const Header = () => {
           <NavLink href='#faq'>FAQ</NavLink>
 
           <li className='!ml-auto'>
-            <Link href='/login' className='hover:bg-gray-200' intent='nav'>
+            <Link href='/login' className='hover:bg-grey-400' intent='nav'>
               Login
             </Link>
           </li>
