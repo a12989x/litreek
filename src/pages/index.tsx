@@ -18,7 +18,7 @@ const Home: NextPage = () => {
           </div>
           <input
             type='text'
-            className='peer h-[44px] w-52 pr-6 text-purple-500 outline-none placeholder:text-gray-400'
+            className='placeholder:text-grey-900 peer h-[44px] w-52 pr-6 text-purple-500 outline-none'
             placeholder='yourname'
           />
           <div className='peer-focus:animate-cta-bg peer-hover:animate-cta-bg absolute inset-0 -z-10 bg-gradient-to-r from-pink-500 via-indigo-500 to-purple-500 bg-[length:165%]' />
