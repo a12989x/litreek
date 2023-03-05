@@ -10,6 +10,10 @@ const linkStyles = tv({
       nav: cn(
         'text-underline inline-flex h-8 items-center justify-center rounded-lg px-3 text-sm font-medium transition-colors hover:bg-purple-200'
       ),
+      footer: cn(
+        'font-medium text-gray-500',
+        'hover:text-gray-700 hover:underline'
+      ),
     },
   },
   defaultVariants: {},
