@@ -1,4 +1,4 @@
-import { Link } from '~/components/ui';
+import { Button, Link } from '~/components/ui';
 
 import NavLink from './NavLink';
 
@@ -21,12 +21,12 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link href='/signup'>
+            <Button href='/signup'>
               Sign up
               <span className='font-normal italic'>
                 &nbsp; &mdash; it&apos;s free
               </span>
-            </Link>
+            </Button>
           </li>
         </ul>
       </nav>
