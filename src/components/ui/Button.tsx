@@ -15,8 +15,8 @@ const buttonStyles = tv({
       ),
     },
     size: {
-      smal: 'px-3 h-7 text-xs',
-      medium: 'h-8 px-4 text-sm',
+      small: 'px-3 h-8 text-sm',
+      medium: 'h-10 px-4 text-sm',
       large: 'px-6 h-12 text-md',
     },
   },
