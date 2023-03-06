@@ -22,7 +22,7 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Button href='/signup'>
+            <Button href='/register'>
               Sign up
               <span className='font-normal italic'>
                 &nbsp; &mdash; it&apos;s free
