@@ -6,7 +6,7 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div>
+    <div className='grid min-h-screen grid-rows-[auto_1fr_auto]'>
       <Header />
       {children}
       <Footer />
