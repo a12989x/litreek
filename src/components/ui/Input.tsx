@@ -7,7 +7,8 @@ type InputProps = ComponentProps<'input'>;
 export const inputStyles = tv({
   base: cn(
     'h-10 rounded-lg border border-gray-700 px-4 transition-colors duration-200',
-    'hover:border-gray-800'
+    'hover:border-gray-800',
+    'outline-indigo-800 focus:outline'
   ),
   variants: {},
   defaultVariants: {},
