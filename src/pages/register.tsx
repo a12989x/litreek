@@ -1,5 +1,6 @@
 import { type NextPage } from 'next';
 import { signIn } from 'next-auth/react';
+import { GoogleIcon } from '~/components/icons';
 import { Button, Input, Link } from '~/components/ui';
 
 const Register: NextPage = () => {
@@ -66,9 +67,9 @@ const Register: NextPage = () => {
             type='button'
             onClick={() => signIn('google', { callbackUrl: '/' })}
             intent='ghost'
-            className='w-full'
+            className='w-full space-x-2'
           >
-            Sign Up with Google
+            <GoogleIcon className='h-4 w-4' /> <span>Sign Up with Google</span>
           </Button>
           <Button
             type='button'
