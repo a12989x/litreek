@@ -4,7 +4,7 @@ import { cn } from '~/utils';
 import ButtonOrLink, { type Props as ButtonOrLinkProps } from './ButtonOrLink';
 
 const linkStyles = tv({
-  base: cn('rounded-sm outline-indigo-600 focus:outline'),
+  base: cn('rounded-sm outline-indigo-800 focus:outline'),
   variants: {
     intent: {
       nav: cn(
