@@ -1,8 +1,17 @@
-const FormLabel = () => {
+import { type ComponentProps } from 'react';
+
+type LabelProps = ComponentProps<'label'>;
+
+interface Props extends LabelProps {
+  htmlFor: string;
+  children: React.ReactNode;
+}
+
+const FormLabel = ({ htmlFor, children, ...props }: Props) => {
   return (
-    <div>
-      <p>Form Label</p>
-    </div>
+    <label htmlFor={htmlFor} className='font-medium' {...props}>
+      {children}
+    </label>
   );
 };
 
