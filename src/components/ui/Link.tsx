@@ -9,7 +9,8 @@ const linkStyles = tv({
     intent: {
       nav: cn(
         'text-underline inline-flex h-8 items-center justify-center rounded-lg px-3 text-sm font-medium transition-colors',
-        'hover:bg-indigo-400'
+        'hover:bg-indigo-400',
+        'active:bg-indigo-500'
       ),
       footer: cn(
         'font-medium text-gray-900',
