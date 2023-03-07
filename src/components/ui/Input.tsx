@@ -16,7 +16,7 @@ export const inputStyles = tv({
 
 type InputVariants = VariantProps<typeof inputStyles>;
 
-interface Props extends InputProps, InputVariants { }
+export interface Props extends InputProps, InputVariants { }
 
 const Input = ({ className, ...props }: Props) => {
   return <input className={inputStyles({ class: className })} {...props} />;
