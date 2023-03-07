@@ -1,15 +1,25 @@
+import { useRouter } from 'next/router';
 import { Footer, Header } from '~/components';
+import { cn } from '~/utils';
 
 type Props = {
   children: React.ReactNode;
 };
 
 const Layout = ({ children }: Props) => {
+  const { asPath } = useRouter();
+  const show = asPath === '/' || asPath === '/register' || asPath === '/login';
+
   return (
-    <div className='grid min-h-screen grid-rows-[auto_1fr_auto]'>
-      <Header />
+    <div
+      className={cn(
+        'grid min-h-screen',
+        show ? 'grid-rows-[auto_1fr_auto]' : ''
+      )}
+    >
+      {show && <Header />}
       {children}
-      <Footer />
+      {show && <Footer />}
     </div>
   );
 };
