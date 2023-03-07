@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { fontFamily } = require('tailwindcss/defaultTheme');
-const { gray, grayDark } = require('@radix-ui/colors');
+const { gray, grayDark, pink, purple, indigo } = require('@radix-ui/colors');
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -35,6 +35,48 @@ const config = {
           1000: grayDark.gray10,
           1100: grayDark.gray11,
           1200: grayDark.gray12,
+        },
+        pink: {
+          100: pink.pink1,
+          200: pink.pink2,
+          300: pink.pink3,
+          400: pink.pink4,
+          500: pink.pink5,
+          600: pink.pink6,
+          700: pink.pink7,
+          800: pink.pink8,
+          900: pink.pink9,
+          1000: pink.pink10,
+          1100: pink.pink11,
+          1200: pink.pink12,
+        },
+        purple: {
+          100: purple.purple1,
+          200: purple.purple2,
+          300: purple.purple3,
+          400: purple.purple4,
+          500: purple.purple5,
+          600: purple.purple6,
+          700: purple.purple7,
+          800: purple.purple8,
+          900: purple.purple9,
+          1000: purple.purple10,
+          1100: purple.purple11,
+          1200: purple.purple12,
+        },
+        indigo: {
+          100: indigo.indigo1,
+          200: indigo.indigo2,
+          300: indigo.indigo3,
+          400: indigo.indigo4,
+          500: indigo.indigo5,
+          600: indigo.indigo6,
+          700: indigo.indigo7,
+          800: indigo.indigo8,
+          900: indigo.indigo9,
+          1000: indigo.indigo10,
+          1100: indigo.indigo11,
+          1200: indigo.indigo12,
         },
       },
       fontFamily: {
