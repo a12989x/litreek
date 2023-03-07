@@ -1,8 +1,21 @@
-const FormInput = () => {
+import { Input } from '~/components/ui';
+import { type Props as InputProps } from '~/components/ui/Input';
+
+interface Props extends InputProps {
+  type: string;
+  id: string;
+  placeholder: string;
+}
+
+const FormInput = ({ type, id, placeholder, ...props }: Props) => {
   return (
-    <div>
-      <p>Form Input</p>
-    </div>
+    <Input
+      type={type}
+      id={id}
+      placeholder={placeholder}
+      className='w-full'
+      {...props}
+    />
   );
 };
 
