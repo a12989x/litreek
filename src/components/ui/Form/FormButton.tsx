@@ -1,8 +1,14 @@
-const FormButton = () => {
+import { Button } from '~/components/ui';
+
+type Props = {
+  children: React.ReactNode;
+};
+
+const FormButton = ({ children }: Props) => {
   return (
-    <div>
-      <p>Form Button Submit</p>
-    </div>
+    <Button type='submit' className='w-full'>
+      {children}
+    </Button>
   );
 };
 
