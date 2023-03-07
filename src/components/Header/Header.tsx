@@ -12,9 +12,9 @@ const Header = () => {
             <Link href='/'>Logo</Link>
           </li>
           <NavLink href='/register'>Get Started</NavLink>
-          <NavLink href='#features'>Features</NavLink>
-          <NavLink href='#pricing'>Pricing</NavLink>
-          <NavLink href='#faq'>FAQ</NavLink>
+          <NavLink href='/#features'>Features</NavLink>
+          <NavLink href='/#pricing'>Pricing</NavLink>
+          <NavLink href='/#faq'>FAQ</NavLink>
 
           <li className='!ml-auto'>
             <Link href='/login' className='hover:bg-gray-400' intent='nav'>
