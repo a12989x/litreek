@@ -1,4 +1,5 @@
 import { type NextPage } from 'next';
+import { signIn } from 'next-auth/react';
 import { Button, Input, Link } from '~/components/ui';
 
 const Register: NextPage = () => {
@@ -53,10 +54,20 @@ const Register: NextPage = () => {
         </div>
 
         <div className='space-y-4'>
-          <Button type='button' intent='ghost' className='w-full'>
+          <Button
+            type='button'
+            onClick={() => signIn('google', { callbackUrl: '/' })}
+            intent='ghost'
+            className='w-full'
+          >
             Sign Up with Google
           </Button>
-          <Button type='button' intent='ghost' className='w-full'>
+          <Button
+            type='button'
+            onClick={() => signIn('github', { callbackUrl: '/' })}
+            intent='ghost'
+            className='w-full'
+          >
             Sign Up with GitHub
           </Button>
         </div>
