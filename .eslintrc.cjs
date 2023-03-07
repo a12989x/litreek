@@ -30,6 +30,15 @@ const config = {
         fixStyle: 'inline-type-imports',
       },
     ],
+    '@typescript-eslint/no-misused-promises': [
+      'error',
+      {
+        checksVoidReturn: {
+          // Allow `void` return type for JSX attributes such as `onClick` / `onSubmit`
+          attributes: false,
+        },
+      },
+    ],
     '@next/next/no-html-link-for-pages': 'off',
     'react/jsx-key': 'off',
     'react/react-in-jsx-scope': 'off',
