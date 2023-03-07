@@ -15,8 +15,16 @@ const Register: NextPage = () => {
           </div>
 
           <div className='space-y-4'>
-            <div>
-              <Input type='text' placeholder='yourname' className='w-full' />
+            <div className='space-y-2'>
+              <label htmlFor='link' className='font-medium'>
+                litreek.link/
+              </label>
+              <Input
+                type='text'
+                id='link'
+                placeholder='yourname'
+                className='w-full'
+              />
             </div>
             <div className='space-y-2'>
               <label htmlFor='email' className='font-medium'>
