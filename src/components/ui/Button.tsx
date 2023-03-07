@@ -6,7 +6,7 @@ import ButtonOrLink, { type Props as ButtonOrLinkProps } from './ButtonOrLink';
 const buttonStyles = tv({
   base: cn(
     'flex w-fit items-center justify-center font-bold',
-    'outline outline-indigo-600'
+    'outline-indigo-600 focus:outline'
   ),
   variants: {
     intent: {
