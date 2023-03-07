@@ -4,11 +4,12 @@ import { cn } from '~/utils';
 import ButtonOrLink, { type Props as ButtonOrLinkProps } from './ButtonOrLink';
 
 const linkStyles = tv({
-  base: cn(),
+  base: cn('rounded-sm outline-indigo-600 focus:outline'),
   variants: {
     intent: {
       nav: cn(
-        'text-underline inline-flex h-8 items-center justify-center rounded-lg px-3 text-sm font-medium transition-colors hover:bg-purple-200'
+        'text-underline inline-flex h-8 items-center justify-center rounded-lg px-3 text-sm font-medium transition-colors',
+        'hover:bg-indigo-400'
       ),
       footer: cn(
         'font-medium text-gray-900',

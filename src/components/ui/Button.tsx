@@ -4,7 +4,10 @@ import { cn } from '~/utils';
 import ButtonOrLink, { type Props as ButtonOrLinkProps } from './ButtonOrLink';
 
 const buttonStyles = tv({
-  base: 'flex w-fit items-center justify-center font-bold',
+  base: cn(
+    'flex w-fit items-center justify-center font-bold',
+    'outline outline-indigo-600'
+  ),
   variants: {
     intent: {
       cta: cn(
