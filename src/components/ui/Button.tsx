@@ -18,7 +18,8 @@ const buttonStyles = tv({
         'hover:bg-gray-1200/80'
       ),
       ghost: cn(
-        'text-gray-1200 rounded-lg border border-gray-700 hover:border-gray-800'
+        'text-gray-1200 rounded-lg border border-gray-700 bg-gray-100',
+        'hover:border-gray-800 hover:bg-gray-200'
       ),
     },
     size: {
