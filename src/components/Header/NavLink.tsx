@@ -16,7 +16,7 @@ const NavLink = ({ href, className, children }: Props) => {
       <Link
         href={href}
         intent='nav'
-        className={cn(href === asPath ? 'bg-purple-500' : '')}
+        className={cn(href === asPath ? 'bg-indigo-500' : '')}
       >
         {children}
       </Link>
