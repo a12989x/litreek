@@ -13,7 +13,7 @@ const Layout = ({ children }: Props) => {
   return (
     <div
       className={cn(
-        'grid min-h-screen',
+        'grid min-h-screen gap-y-6',
         show ? 'grid-rows-[auto_1fr_auto]' : ''
       )}
     >
