@@ -8,14 +8,14 @@ const Setup: NextPage = () => {
         <div className='space-y-6'>
           <div>
             <h1 className='text-3xl font-bold'>Let&apos;s get started!</h1>
-            <p className='text-grey-1100'>
+            <p className='text-gray-1100'>
               You can customize your page with links and content embed.
             </p>
           </div>
 
           <div className='space-y-4'>
             <div className='flex space-x-4'>
-              <div className='bg-grey-300 h-[72px] w-full max-w-[72px] rounded-full' />
+              <div className='h-[72px] w-full max-w-[72px] rounded-full bg-gray-300' />
               <div className='space-y-2'>
                 <label htmlFor='name' className='font-medium'>
                   Name

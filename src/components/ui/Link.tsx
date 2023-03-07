@@ -11,8 +11,8 @@ const linkStyles = tv({
         'text-underline inline-flex h-8 items-center justify-center rounded-lg px-3 text-sm font-medium transition-colors hover:bg-purple-200'
       ),
       footer: cn(
-        'text-grey-900 font-medium',
-        'hover:text-grey-1000 hover:underline'
+        'font-medium text-gray-900',
+        'hover:text-gray-1000 hover:underline'
       ),
     },
   },

@@ -6,7 +6,7 @@ import { Button, Input, Link } from '~/components/ui';
 const Register: NextPage = () => {
   return (
     <div className='mx-auto flex w-full max-w-screen-xl items-center justify-center'>
-      <form className='border-grey-600 mx-auto w-full max-w-md rounded-lg border p-6'>
+      <form className='mx-auto w-full max-w-md rounded-lg border border-gray-600 p-6'>
         <div className='space-y-6'>
           <div>
             <h1 className='text-3xl font-bold'>Create Account</h1>
@@ -57,9 +57,9 @@ const Register: NextPage = () => {
         </div>
 
         <div className='my-8 grid w-full grid-cols-[1fr_auto_1fr] items-center gap-4'>
-          <div className='bg-grey-600 h-px' />
+          <div className='h-px bg-gray-600' />
           <span>Or</span>
-          <div className='bg-grey-600 h-px' />
+          <div className='h-px bg-gray-600' />
         </div>
 
         <div className='space-y-4'>

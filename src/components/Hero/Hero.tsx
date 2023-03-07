@@ -16,7 +16,7 @@ const Hero = () => {
         </div>
         <input
           type='text'
-          className='placeholder:text-grey-900 peer h-[44px] w-52 pr-6 text-purple-500 outline-none'
+          className='peer h-[44px] w-52 pr-6 text-indigo-900 outline-none placeholder:text-gray-900'
           placeholder='yourname'
         />
         <div className='peer-focus:animate-cta-bg peer-hover:animate-cta-bg absolute inset-0 -z-10 bg-gradient-to-r from-pink-900 via-indigo-900 to-purple-900 bg-[length:165%]' />

@@ -11,10 +11,10 @@ const buttonStyles = tv({
         'hover:animate-cta-bg rounded-lg bg-gradient-to-r from-pink-900 via-indigo-900 to-purple-900 bg-[length:165%] text-white transition-colors'
       ),
       primary: cn(
-        'hover:bg-grey-800 rounded-lg bg-black text-white transition-colors'
+        'rounded-lg bg-black text-white transition-colors hover:bg-gray-800'
       ),
       ghost: cn(
-        'border-grey-700 hover:border-grey-800 text-grey-1200 rounded-lg border'
+        'text-gray-1200 rounded-lg border border-gray-700 hover:border-gray-800'
       ),
     },
     size: {
