@@ -11,7 +11,7 @@ const Hero = () => {
         your visitors.
       </h2>
       <form className='relative mb-16 flex items-center justify-center overflow-hidden rounded-lg font-medium'>
-        <div className='ml-0.5 flex h-[44px] items-center justify-center rounded-l-lg bg-white pl-6'>
+        <div className='ml-0.5 flex h-[44px] items-center justify-center rounded-l-lg bg-gray-100 pl-6'>
           <span>litreek.link/</span>
         </div>
         <input

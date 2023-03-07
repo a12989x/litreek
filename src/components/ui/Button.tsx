@@ -8,10 +8,11 @@ const buttonStyles = tv({
   variants: {
     intent: {
       cta: cn(
-        'hover:animate-cta-bg rounded-lg bg-gradient-to-r from-pink-900 via-indigo-900 to-purple-900 bg-[length:165%] text-white transition-colors'
+        'hover:animate-cta-bg rounded-lg bg-gradient-to-r from-pink-900 via-indigo-900 to-purple-900 bg-[length:165%] text-gray-100 transition-colors'
       ),
       primary: cn(
-        'rounded-lg bg-black text-white transition-colors hover:bg-gray-800'
+        'bg-gray-1200 rounded-lg text-gray-100 transition-colors',
+        'hover:bg-gray-1200/80'
       ),
       ghost: cn(
         'text-gray-1200 rounded-lg border border-gray-700 hover:border-gray-800'
