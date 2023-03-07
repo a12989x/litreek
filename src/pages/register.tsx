@@ -1,6 +1,6 @@
 import { type NextPage } from 'next';
 import { signIn } from 'next-auth/react';
-import { GoogleIcon } from '~/components/icons';
+import { GitHubIcon, GoogleIcon } from '~/components/icons';
 import { Button, Input, Link } from '~/components/ui';
 
 const Register: NextPage = () => {
@@ -75,9 +75,9 @@ const Register: NextPage = () => {
             type='button'
             onClick={() => signIn('github', { callbackUrl: '/' })}
             intent='ghost'
-            className='w-full'
+            className='w-full space-x-2'
           >
-            Sign Up with GitHub
+            <GitHubIcon className='h-4 w-4' /> <span>Sign Up with GitHub</span>
           </Button>
         </div>
       </form>
