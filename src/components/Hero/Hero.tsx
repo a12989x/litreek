@@ -16,22 +16,22 @@ const Hero = () => {
         </div>
         <input
           type='text'
-          className='peer h-[44px] w-52 pr-6 text-indigo-900 outline-none placeholder:text-gray-900'
+          className='peer/input h-[44px] w-52 pr-6 text-indigo-900 outline-none placeholder:text-gray-900'
           placeholder='yourname'
         />
-        <div className='peer-focus:animate-cta-bg peer-hover:animate-cta-bg absolute inset-0 -z-10 bg-gradient-to-r from-pink-900 via-indigo-900 to-purple-900 bg-[length:165%]' />
         <Button
           href='/signup'
           size='large'
           type='submit'
           intent='cta'
-          className='bg-none'
+          className='peer/button bg-none outline-0'
         >
           Claim{' '}
           <span className='font-normal italic'>
             &nbsp; &mdash; it&apos;s free
           </span>
         </Button>
+        <div className='peer-focus/input:animate-cta-bg peer-hover/input:animate-cta-bg peer-focus/button:animate-cta-bg peer-hover/button:animate-cta-bg absolute inset-0 -z-10 bg-gradient-to-r from-pink-900 via-indigo-900 to-purple-900 bg-[length:165%]' />
       </form>
     </main>
   );
