@@ -1,4 +1,6 @@
+import { useRouter } from 'next/router';
 import { Link } from '~/components/ui';
+import { cn } from '~/utils';
 
 type Props = {
   href: string;
@@ -7,9 +9,15 @@ type Props = {
 };
 
 const NavLink = ({ href, className, children }: Props) => {
+  const { asPath } = useRouter();
+
   return (
     <li className={className}>
-      <Link href={href} intent='nav'>
+      <Link
+        href={href}
+        intent='nav'
+        className={cn(href === asPath ? 'bg-purple-500' : '')}
+      >
         {children}
       </Link>
     </li>
