@@ -8,18 +8,23 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   const { asPath } = useRouter();
-  const show = asPath === '/' || asPath === '/register' || asPath === '/login';
+  const showHeader =
+    asPath === '/' ||
+    asPath.includes('/#') ||
+    asPath === '/register' ||
+    asPath === '/login';
+  const showFooter = asPath === '/';
 
   return (
     <div
       className={cn(
         'grid min-h-screen gap-y-6',
-        show ? 'grid-rows-[auto_1fr_auto]' : ''
+        showHeader ? 'grid-rows-[auto_1fr_auto]' : ''
       )}
     >
-      {show && <Header />}
+      {showHeader && <Header />}
       {children}
-      {show && <Footer />}
+      {showFooter && <Footer />}
     </div>
   );
 };
