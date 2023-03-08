@@ -2,8 +2,8 @@ type Props = {
   children: React.ReactNode;
 };
 
-const PricingHeader = ({ children }: Props) => {
+const PlanHeader = ({ children }: Props) => {
   return <div>{children}</div>;
 };
 
-export default PricingHeader;
+export default PlanHeader;

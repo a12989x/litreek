@@ -2,8 +2,8 @@ type Props = {
   children: React.ReactNode;
 };
 
-const PricingTitle = ({ children }: Props) => {
+const PlanName = ({ children }: Props) => {
   return <h3 className='text-xl font-bold'>{children}</h3>;
 };
 
-export default PricingTitle;
+export default PlanName;

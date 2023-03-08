@@ -2,8 +2,8 @@ type Props = {
   children: React.ReactNode;
 };
 
-const PricingBilled = ({ children }: Props) => {
+const PlanBilled = ({ children }: Props) => {
   return <span className='text-sm'>{children}</span>;
 };
 
-export default PricingBilled;
+export default PlanBilled;
