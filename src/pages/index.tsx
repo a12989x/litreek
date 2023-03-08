@@ -1,10 +1,11 @@
 import { type NextPage } from 'next';
-import { Hero } from '~/components';
+import { Features, Hero } from '~/components';
 
 const Home: NextPage = () => {
   return (
     <div className='mt-16'>
       <Hero />
+      <Features />
     </div>
   );
 };
