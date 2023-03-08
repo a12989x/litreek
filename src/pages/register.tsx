@@ -64,7 +64,7 @@ const Register: NextPage = () => {
         </Form.Items>
       </Form>
 
-      <p className='mx-auto mt-6 w-full max-w-md px-12 text-center text-sm'>
+      <p className='text-gray-1100 mx-auto mt-6 w-full max-w-md px-12 text-center text-sm'>
         By signing up, you agree to the{' '}
         <Link href='/terms' intent='underline'>
           Terms of Service
