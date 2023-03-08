@@ -13,7 +13,7 @@ const Layout = ({ children }: Props) => {
     asPath.includes('/#') ||
     asPath === '/register' ||
     asPath === '/login';
-  const showFooter = asPath === '/';
+  const showFooter = asPath === '/' || asPath.includes('/#');
 
   return (
     <div
