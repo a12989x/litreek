@@ -33,6 +33,8 @@ const Hero = () => {
         </Button>
         <div className='peer-focus/input:animate-cta-bg peer-hover/input:animate-cta-bg peer-focus/button:animate-cta-bg peer-hover/button:animate-cta-bg absolute inset-0 -z-10 bg-gradient-to-r from-pink-900 via-indigo-900 to-purple-900 bg-[length:165%]' />
       </form>
+
+      <div className='h-[600px] w-full rounded-lg bg-gray-200' />
     </main>
   );
 };
