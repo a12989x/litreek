@@ -16,7 +16,7 @@ const Hero = () => {
         </div>
         <input
           type='text'
-          className='peer/input h-[44px] w-52 pr-6 text-indigo-900 outline-none placeholder:text-gray-900'
+          className='peer/input h-[44px] w-52 pr-6 text-indigo-900 outline-none placeholder:text-gray-800'
           placeholder='yourname'
         />
         <Button
