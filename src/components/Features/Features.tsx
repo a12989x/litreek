@@ -36,7 +36,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section className='mx-auto my-20 flex max-w-screen-xl flex-col items-center px-8'>
+    <section className='mx-auto flex max-w-screen-xl flex-col items-center py-20 px-8'>
       <h2 className='mb-4 text-5xl font-bold'>All the features you need</h2>
       <p className='mb-8 text-2xl'>
         Everthing you need to create your perfect{' '}
