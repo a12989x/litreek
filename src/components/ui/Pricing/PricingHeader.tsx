@@ -1,9 +1,9 @@
-const PricingHeader = () => {
-  return (
-    <div>
-      <p>Pricing Header</p>
-    </div>
-  );
+type Props = {
+  children: React.ReactNode;
+};
+
+const PricingHeader = ({ children }: Props) => {
+  return <div>{children}</div>;
 };
 
 export default PricingHeader;
