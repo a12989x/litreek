@@ -1,8 +1,12 @@
-const Pricing = () => {
+type Props = {
+  children: React.ReactNode;
+};
+
+const Pricing = ({ children }: Props) => {
   return (
-    <div>
-      <p>Pricing</p>
-    </div>
+    <li className='space-y-6 rounded-lg border border-gray-600 p-6'>
+      {children}
+    </li>
   );
 };
 
