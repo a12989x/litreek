@@ -8,7 +8,7 @@ const FeatureImage = ({ src }: Props) => {
   return (
     <Image
       className='rounded-lg bg-gray-200'
-      alt={src.slice(5, -5)}
+      alt={src.slice(5, -4)}
       height={200}
       width={200}
       src={src}
