@@ -8,7 +8,8 @@ export const inputStyles = tv({
   base: cn(
     'h-10 rounded-lg border border-gray-700 px-4 transition-colors',
     'hover:border-gray-800',
-    'outline-indigo-800 focus:outline'
+    'outline-indigo-800 focus:outline',
+    'placeholder:text-gray-800'
   ),
   variants: {},
   defaultVariants: {},
