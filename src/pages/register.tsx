@@ -3,7 +3,7 @@ import { Form, Link } from '~/components/ui';
 
 const Register: NextPage = () => {
   return (
-    <div className='mx-auto flex w-full max-w-screen-xl items-center justify-center'>
+    <div className='mx-auto flex w-full max-w-screen-xl flex-col items-center justify-center'>
       <Form>
         <Form.Container>
           <Form.Header>
@@ -46,6 +46,17 @@ const Register: NextPage = () => {
           <Form.GitHubButton>Sign Up with GitHub</Form.GitHubButton>
         </Form.Items>
       </Form>
+
+      <p className='mx-auto mt-6 w-full max-w-md px-12 text-center text-sm'>
+        By signing up, you agree to the{' '}
+        <Link href='/terms' intent='underline'>
+          Terms of Service
+        </Link>{' '}
+        and{' '}
+        <Link href='privacy' intent='underline'>
+          Privacy Policy
+        </Link>
+      </p>
     </div>
   );
 };
