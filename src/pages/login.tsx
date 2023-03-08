@@ -9,7 +9,10 @@ const Login: NextPage = () => {
           <Form.Header>
             <Form.Title>Login</Form.Title>
             <Form.Description>
-              Don&apos;t have an account? <Link href='/register'>Sign Up</Link>
+              Don&apos;t have an account?{' '}
+              <Link intent='underline' href='/register'>
+                Sign Up
+              </Link>
             </Form.Description>
           </Form.Header>
 
