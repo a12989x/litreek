@@ -1,5 +1,5 @@
 import { type NextPage } from 'next';
-import { Form, Link } from '~/components/ui';
+import { Form, Input, Link } from '~/components/ui';
 
 const Register: NextPage = () => {
   return (
@@ -34,6 +34,23 @@ const Register: NextPage = () => {
                 placeholder='securepassword'
               />
             </Form.InputWrapper>
+
+            <div className='relative'>
+              <div className='absolute left-0'>
+                <label
+                  className='flex h-10 items-center justify-center rounded-l-lg pl-4 font-medium'
+                  htmlFor='link'
+                >
+                  treek.link/
+                </label>
+              </div>
+              <Input
+                type='text'
+                id='link'
+                className='w-full pl-[92.3167px]'
+                placeholder='yourname'
+              />
+            </div>
           </Form.Items>
 
           <Form.Button>Sign Up with Email</Form.Button>
