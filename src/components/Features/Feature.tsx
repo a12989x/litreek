@@ -7,7 +7,7 @@ type Props = {
 };
 
 const Feature = ({ children }: Props) => {
-  return <li className='flex flex-col items-center space-y-2'>{children}</li>;
+  return <li className='flex flex-col items-center'>{children}</li>;
 };
 
 Feature.Image = FeatureImage;
