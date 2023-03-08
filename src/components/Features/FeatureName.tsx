@@ -3,7 +3,7 @@ type Props = {
 };
 
 const FeatureName = ({ children }: Props) => {
-  return <h3 className='text-xl font-bold'>{children}</h3>;
+  return <h3 className='mt-2 text-xl font-bold'>{children}</h3>;
 };
 
 export default FeatureName;
