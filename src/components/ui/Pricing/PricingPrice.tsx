@@ -1,9 +1,9 @@
-const PricingPrice = () => {
-  return (
-    <div>
-      <p>Pricing Price</p>
-    </div>
-  );
+type Props = {
+  children: React.ReactNode;
+};
+
+const PricingPrice = ({ children }: Props) => {
+  return <span className='text-5xl font-bold'>{children}</span>;
 };
 
 export default PricingPrice;
