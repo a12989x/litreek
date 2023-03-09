@@ -1,3 +1,5 @@
+import { cn } from '~/utils';
+
 import PlanBilled from './PlanBilled';
 import PlanDescription from './PlanDescription';
 import PlanFeature from './PlanFeature';
@@ -8,12 +10,18 @@ import PlanPrice from './PlanPrice';
 import PlanPriceContainer from './PlanPriceContainer';
 
 type Props = {
+  isMain: boolean;
   children: React.ReactNode;
 };
 
-const Plan = ({ children }: Props) => {
+const Plan = ({ isMain, children }: Props) => {
   return (
-    <li className='space-y-6 rounded-lg border border-gray-600 p-6'>
+    <li
+      className={cn(
+        'w-[400px] space-y-6 rounded-lg border border-gray-600 p-6',
+        isMain ? 'ring ring-indigo-900' : ''
+      )}
+    >
       {children}
     </li>
   );
