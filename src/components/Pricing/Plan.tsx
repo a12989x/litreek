@@ -1,6 +1,7 @@
 import { cn } from '~/utils';
 
 import PlanBilled from './PlanBilled';
+import PlanButton from './PlanButton';
 import PlanDescription from './PlanDescription';
 import PlanFeature from './PlanFeature';
 import PlanFeatures from './PlanFeatures';
@@ -35,5 +36,6 @@ Plan.Price = PlanPrice;
 Plan.Billed = PlanBilled;
 Plan.Features = PlanFeatures;
 Plan.Feature = PlanFeature;
+Plan.Button = PlanButton;
 
 export default Plan;
