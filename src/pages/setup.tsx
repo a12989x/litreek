@@ -1,50 +1,45 @@
 import { type NextPage } from 'next';
-import { Button, Input, Textarea } from '~/components/ui';
+import { Form } from '~/components/ui';
 
 const Setup: NextPage = () => {
   return (
     <div className='mx-auto flex w-full max-w-screen-xl items-center justify-center'>
-      <form className='mx-auto w-full max-w-md p-6'>
-        <div className='space-y-6'>
-          <div>
-            <h1 className='text-3xl font-bold'>Let&apos;s get started!</h1>
-            <p className='text-gray-1100'>
+      <Form>
+        <Form.Container>
+          <Form.Header>
+            <Form.Title>Let&apos;s get started!</Form.Title>
+            <Form.Description>
               You can customize your page with links and content embed.
-            </p>
-          </div>
+            </Form.Description>
+          </Form.Header>
 
-          <div className='space-y-4'>
+          <Form.Items>
             <div className='flex space-x-4'>
               <div className='h-[72px] w-full max-w-[72px] rounded-full bg-gray-300' />
-              <div className='space-y-2'>
-                <label htmlFor='name' className='font-medium'>
-                  Name
-                </label>
-                <Input
-                  className='w-full'
-                  type='text'
-                  id='name'
-                  placeholder='First Last'
-                />
-              </div>
+              <Form.Field name='name'>
+                <Form.LabelWrapper>
+                  <Form.Label>Name</Form.Label>
+                  <Form.Message match='valueMissing'>
+                    Please provide a name
+                  </Form.Message>
+                </Form.LabelWrapper>
+                <Form.Input type='text' placeholder='First Last' required />
+              </Form.Field>
             </div>
-            <div>
-              <label htmlFor='bio' className='font-medium'>
-                Bio
-              </label>
-              <Textarea
-                id='bio'
+
+            <Form.Field name='bio'>
+              <Form.LabelWrapper>
+                <Form.Label>Bio</Form.Label>
+              </Form.LabelWrapper>
+              <Form.Textarea
                 className='max-h-28 min-h-[60px] w-full'
                 placeholder='UI/UX Designer'
               />
-            </div>
-          </div>
-
-          <Button type='submit' className='w-full'>
-            Continue
-          </Button>
-        </div>
-      </form>
+            </Form.Field>
+          </Form.Items>
+          <Form.Button>Continue</Form.Button>
+        </Form.Container>
+      </Form>
     </div>
   );
 };
