@@ -1,8 +1,15 @@
-const PlanButton = () => {
+import { Button } from '~/components/ui';
+
+type Props = {
+  isMain: boolean;
+  children: React.ReactNode;
+};
+
+const PlanButton = ({ isMain, children }: Props) => {
   return (
-    <div>
-      <p>Plan Button</p>
-    </div>
+    <Button intent={isMain ? 'cta' : 'primary'} className='w-full'>
+      {children}
+    </Button>
   );
 };
 
