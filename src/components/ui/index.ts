@@ -1,3 +1,4 @@
+export { default as Accordion } from './Accordion';
 export { default as Form } from './Form';
 export { default as Button } from './Button';
 export { default as ButtonOrLink } from './ButtonOrLink';
