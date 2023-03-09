@@ -1,8 +1,19 @@
-const FormTextarea = () => {
+import { FormControl } from '@radix-ui/react-form';
+import { Textarea } from '~/components/ui';
+import { type Props as TextareaProps } from '~/components/ui/Textarea';
+
+interface Props extends TextareaProps {
+  placeholder: string;
+}
+const FormTextarea = ({ placeholder, ...props }: Props) => {
   return (
-    <div>
-      <p>Form Textarea</p>
-    </div>
+    <FormControl asChild>
+      <Textarea
+        className='max-h-28 min-h-[60px] w-full'
+        placeholder={placeholder}
+        {...props}
+      />
+    </FormControl>
   );
 };
 
