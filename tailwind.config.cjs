@@ -88,9 +88,19 @@ const config = {
           '50%': { 'background-position': '100%' },
           '100%': { 'background-position': '0 0' },
         },
+        'slide-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        'slide-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
       },
       animation: {
         'cta-bg': 'cta-bg 2s ease-in-out infinite',
+        'slide-down': 'slide-down 150ms ease-in-out',
+        'slide-up': 'slide-up 150ms ease-in-out',
       },
     },
   },
