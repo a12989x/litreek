@@ -1,8 +1,17 @@
-const FormMessage = () => {
+import {
+  FormMessage as RadixFormMessage,
+  type FormMessageProps,
+} from '@radix-ui/react-form';
+
+interface Props extends FormMessageProps {
+  children: React.ReactNode;
+}
+
+const FormMessage = ({ children, ...props }: Props) => {
   return (
-    <div>
-      <p>Form Message</p>
-    </div>
+    <RadixFormMessage className='text-sm text-red-500' {...props}>
+      {children}
+    </RadixFormMessage>
   );
 };
 
