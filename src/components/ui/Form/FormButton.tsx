@@ -1,14 +1,16 @@
+import { FormSubmit } from '@radix-ui/react-form';
 import { Button } from '~/components/ui';
+import { type Props as ButtonProps } from '~/components/ui/Button';
 
-type Props = {
+interface Props extends ButtonProps {
   children: React.ReactNode;
-};
+}
 
 const FormButton = ({ children }: Props) => {
   return (
-    <Button type='submit' className='w-full'>
-      {children}
-    </Button>
+    <FormSubmit asChild>
+      <Button className='w-full'>{children}</Button>
+    </FormSubmit>
   );
 };
 
