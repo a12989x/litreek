@@ -3,7 +3,12 @@ type Props = {
 };
 
 const PlanBilled = ({ children }: Props) => {
-  return <span className='text-sm'>{children}</span>;
+  return (
+    <div className='flex flex-col text-sm'>
+      <span>peer monthly</span>
+      <span className='text-gray-1100'>{children}</span>
+    </div>
+  );
 };
 
 export default PlanBilled;
