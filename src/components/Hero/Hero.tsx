@@ -20,7 +20,7 @@ const Hero = () => {
           placeholder='yourname'
         />
         <Button
-          href='/signup'
+          href='/register'
           size='large'
           type='submit'
           intent='cta'
