@@ -7,7 +7,11 @@ type Props = {
 
 const PlanButton = ({ isMain, children }: Props) => {
   return (
-    <Button intent={isMain ? 'cta' : 'primary'} className='w-full'>
+    <Button
+      href='/register'
+      intent={isMain ? 'cta' : 'primary'}
+      className='w-full'
+    >
       {children}
     </Button>
   );
