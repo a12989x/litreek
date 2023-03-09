@@ -43,7 +43,7 @@ const Features = () => {
       <h2 className='mb-4 text-5xl font-bold'>All the features you need</h2>
       <p className='mb-8 text-2xl'>
         Everthing you need to create your perfect{' '}
-        <span className='after:bg-gray-1200 relative font-medium text-gray-100 before:absolute before:-inset-x-px before:top-0 before:-bottom-1 before:-z-10 before:bg-indigo-900 after:absolute after:-top-1 after:-bottom-2 after:right-0 after:w-px'>
+        <span className='after:bg-gray-1200 relative font-medium text-gray-100 before:absolute before:-inset-x-px before:top-0 before:-bottom-1 before:-z-10 before:bg-gradient-to-r before:from-indigo-900 before:to-purple-900 after:absolute after:-top-1 after:-bottom-2 after:right-0 after:w-px'>
           link-in-bio
         </span>
         .
