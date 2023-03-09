@@ -13,7 +13,7 @@ const FormInput = ({ type, id, placeholder, ...props }: Props) => {
       type={type}
       id={id}
       placeholder={placeholder}
-      className='w-full'
+      className='w-full bg-gray-100'
       {...props}
     />
   );
