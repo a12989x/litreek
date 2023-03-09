@@ -15,7 +15,7 @@ const textareaStyles = tv({
 
 type TextareaVariants = VariantProps<typeof textareaStyles>;
 
-interface Props extends TextareaProps, TextareaVariants { }
+interface Props extends TextareaProps, TextareaVariants {}
 
 const Textarea = ({ className, ...props }: Props) => {
   return (
