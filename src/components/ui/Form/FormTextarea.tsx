@@ -6,7 +6,8 @@ import { type Props as TextareaProps } from '~/components/ui/Textarea';
 interface Props extends TextareaProps {
   placeholder: string;
 }
-const FormTextarea = ({ placeholder, ...props }: Props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const FormTextarea = ({ placeholder, ref, ...props }: Props) => {
   return (
     <FormControl asChild>
       <Textarea
