@@ -11,7 +11,7 @@ const Setup: NextPage = () => {
   return (
     <div className='relative mx-auto flex w-full max-w-screen-xl flex-col items-center justify-center'>
       {step === 1 && (
-        <Form>
+        <Form onSubmit={() => setStep(steps[1])}>
           <Form.Container>
             <Form.Header>
               <Form.Title>Let&apos;s get started!</Form.Title>
@@ -73,7 +73,9 @@ const Setup: NextPage = () => {
           <Form.Container>
             <Form.Header>
               <Form.Title>Almost there!</Form.Title>
-              <Form.Description>Please add more information.</Form.Description>
+              <Form.Description>
+                Please add your location and some social links.
+              </Form.Description>
             </Form.Header>
 
             <Form.Items>
@@ -88,7 +90,7 @@ const Setup: NextPage = () => {
                 <Form.LabelWrapper>
                   <Form.Label>Instagram</Form.Label>
                 </Form.LabelWrapper>
-                <Form.Input type='text' placeholder='leerob' />
+                <Form.Input type='text' placeholder='codingcodax' />
               </Form.Field>
 
               <Form.Field name='twitter'>
@@ -102,25 +104,28 @@ const Setup: NextPage = () => {
                 <Form.LabelWrapper>
                   <Form.Label>YouTube</Form.Label>
                 </Form.LabelWrapper>
-                <Form.Input type='text' placeholder='codingcodax' />
+                <Form.Input type='text' placeholder='t3dotgg' />
               </Form.Field>
             </Form.Items>
 
-            <Form.Button>Finalize</Form.Button>
+            <Form.Items direction='horizontal'>
+              <Form.SecondaryButton onClick={() => setStep(1)}>
+                Go back
+              </Form.SecondaryButton>
+              <Form.Button>Finalize</Form.Button>
+            </Form.Items>
           </Form.Container>
         </Form>
       )}
 
-      <div className='absolute bottom-8 grid grid-cols-2 gap-4'>
+      <div className='absolute bottom-8 flex gap-4'>
         {steps.map((stp) => (
           <button
             className={cn(
-              'h-4 w-4 rounded-full border border-gray-700 bg-gray-400',
-              'hover:border-gray-800 hover:bg-gray-800',
-              'outline-indigo-800 focus:outline',
-              stp === step ? 'bg-gray-1200 hover:bg-gray=1200' : ''
+              'h-3 w-3 rounded-full border border-gray-700 bg-gray-400',
+              stp === step ? 'bg-gray-1200 hover:bg-gray=1200 w-8' : ''
             )}
-            onClick={() => setStep(stp)}
+            disabled
           />
         ))}
       </div>
