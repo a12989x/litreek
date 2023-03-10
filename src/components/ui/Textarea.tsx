@@ -1,4 +1,4 @@
-import { type ComponentProps } from 'react';
+import { forwardRef, type ComponentProps } from 'react';
 import { tv, type VariantProps } from 'tailwind-variants';
 import { cn } from '~/utils';
 
@@ -15,12 +15,20 @@ const textareaStyles = tv({
 
 type TextareaVariants = VariantProps<typeof textareaStyles>;
 
-export interface Props extends TextareaProps, TextareaVariants {}
+export interface Props extends TextareaProps, TextareaVariants { }
 
-const Textarea = ({ className, ...props }: Props) => {
-  return (
-    <textarea className={textareaStyles({ class: className })} {...props} />
-  );
-};
+const Textarea = forwardRef<HTMLTextAreaElement, Props>(
+  ({ className, ...props }, ref) => {
+    return (
+      <textarea
+        className={textareaStyles({ class: className })}
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);
+
+Textarea.displayName = 'Textarea';
 
 export default Textarea;
