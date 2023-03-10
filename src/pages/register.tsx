@@ -1,4 +1,5 @@
 import { type NextPage } from 'next';
+
 import { Form, Input, Link } from '~/components/ui';
 
 const Register: NextPage = () => {

@@ -1,7 +1,8 @@
 import { FormControl } from '@radix-ui/react-form';
+import { cn } from '~/utils';
+
 import { Input } from '~/components/ui';
 import { type Props as InputProps } from '~/components/ui/Input';
-import { cn } from '~/utils';
 
 interface Props extends InputProps {
   type: string;

@@ -1,4 +1,5 @@
 import { type NextPage } from 'next';
+
 import { Form, Link } from '~/components/ui';
 
 const Login: NextPage = () => {
