@@ -13,6 +13,7 @@ import FormLabel from './FormLabel';
 import FormLabelWrapper from './FormLabelWrapper';
 import FormMessage from './FormMessage';
 import FormOrDivider from './FormOrDivider';
+import FormSecondaryButton from './FormSecondaryButton';
 import FormTextarea from './FormTextarea';
 import FormTitle from './FormTitle';
 
@@ -43,6 +44,7 @@ Form.Message = FormMessage;
 Form.Input = FormInput;
 Form.Textarea = FormTextarea;
 Form.Button = FormButton;
+Form.SecondaryButton = FormSecondaryButton;
 Form.OrDivider = FormOrDivider;
 Form.GoogleButton = FormGoogleButton;
 Form.GitHubButton = FormGitHubButton;
