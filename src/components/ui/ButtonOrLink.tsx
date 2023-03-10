@@ -1,24 +1,29 @@
-import type { ComponentProps } from 'react';
+import { forwardRef, type ComponentProps } from 'react';
 import Link from 'next/link';
 
 type ButtonOrLinkProps = ComponentProps<'button'> & ComponentProps<'a'>;
 
 export type Props = ButtonOrLinkProps;
 
-export const ButtonOrLink = ({ href, ...props }: Props) => {
-  const isLink = typeof href !== 'undefined';
-  const ButtonOrLink = isLink ? 'a' : 'button';
+export const ButtonOrLink = forwardRef<HTMLButtonElement, Props>(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  ({ href, ...props }, _ref) => {
+    const isLink = typeof href !== 'undefined';
+    const ButtonOrLink = isLink ? 'a' : 'button';
 
-  const content = <ButtonOrLink {...props} />;
+    const content = <ButtonOrLink {...props} />;
 
-  if (isLink)
-    return (
-      <Link legacyBehavior href={href}>
-        {content}
-      </Link>
-    );
+    if (isLink)
+      return (
+        <Link legacyBehavior href={href}>
+          {content}
+        </Link>
+      );
 
-  return content;
-};
+    return content;
+  }
+);
+
+ButtonOrLink.displayName = 'ButtonOrLink';
 
 export default ButtonOrLink;
