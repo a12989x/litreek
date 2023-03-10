@@ -1,6 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { fontFamily } = require('tailwindcss/defaultTheme');
-const { gray, grayDark, pink, purple, indigo } = require('@radix-ui/colors');
+const {
+  gray,
+  grayDark,
+  pink,
+  purple,
+  indigo,
+  red,
+} = require('@radix-ui/colors');
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -77,6 +84,20 @@ const config = {
           1000: indigo.indigo10,
           1100: indigo.indigo11,
           1200: indigo.indigo12,
+        },
+        red: {
+          100: red.red1,
+          200: red.red2,
+          300: red.red3,
+          400: red.red4,
+          500: red.red5,
+          600: red.red6,
+          700: red.red7,
+          800: red.red8,
+          900: red.red9,
+          1000: red.red10,
+          1100: red.red11,
+          1200: red.red12,
         },
       },
       fontFamily: {
