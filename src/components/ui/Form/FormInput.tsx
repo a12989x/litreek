@@ -9,7 +9,8 @@ interface Props extends InputProps {
   placeholder: string;
 }
 
-const FormInput = ({ type, placeholder, ...props }: Props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const FormInput = ({ type, placeholder, ref, ...props }: Props) => {
   return (
     <FormControl asChild>
       <Input
