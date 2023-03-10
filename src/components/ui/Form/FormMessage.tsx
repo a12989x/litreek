@@ -9,7 +9,7 @@ interface Props extends FormMessageProps {
 
 const FormMessage = ({ children, ...props }: Props) => {
   return (
-    <RadixFormMessage className='text-sm text-red-500' {...props}>
+    <RadixFormMessage className='text-sm text-red-900' {...props}>
       {children}
     </RadixFormMessage>
   );
