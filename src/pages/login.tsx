@@ -17,23 +17,40 @@ const Login: NextPage = () => {
           </Form.Header>
 
           <Form.Items>
-            <Form.InputWrapper>
-              <Form.Label htmlFor='email'>Email</Form.Label>
+            <Form.Field name='email'>
+              <Form.LabelWrapper>
+                <Form.Label>Email</Form.Label>
+                <Form.Message match='valueMissing'>
+                  Please enter your email
+                </Form.Message>
+                <Form.Message match='typeMismatch'>
+                  Please provide a valid email
+                </Form.Message>
+              </Form.LabelWrapper>
               <Form.Input
                 type='email'
-                id='email'
                 placeholder='name@example.com'
+                required
               />
-            </Form.InputWrapper>
+            </Form.Field>
 
-            <Form.InputWrapper>
-              <Form.Label htmlFor='password'>Password</Form.Label>
+            <Form.Field name='password'>
+              <Form.LabelWrapper>
+                <Form.Label>Password</Form.Label>
+                <Form.Message match='valueMissing'>
+                  Please enter a password
+                </Form.Message>
+                <Form.Message match='tooShort'>
+                  Your password is to short
+                </Form.Message>
+              </Form.LabelWrapper>
               <Form.Input
                 type='password'
-                id='password'
                 placeholder='securepassword'
+                minLength={5}
+                required
               />
-            </Form.InputWrapper>
+            </Form.Field>
           </Form.Items>
 
           <Form.Button>Log In with Email</Form.Button>
