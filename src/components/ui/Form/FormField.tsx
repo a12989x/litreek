@@ -9,7 +9,7 @@ interface Props extends FormFieldProps {
 
 const FormField = ({ children, ...props }: Props) => {
   return (
-    <RadixFormField className='space-y-2' {...props}>
+    <RadixFormField className='w-full space-y-2' {...props}>
       {children}
     </RadixFormField>
   );
