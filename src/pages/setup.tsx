@@ -1,45 +1,129 @@
+import { useState } from 'react';
 import { type NextPage } from 'next';
 import { Form } from '~/components/ui';
+import { cn } from '~/utils';
+
+const steps = [1, 2];
 
 const Setup: NextPage = () => {
-  return (
-    <div className='mx-auto flex w-full max-w-screen-xl items-center justify-center'>
-      <Form>
-        <Form.Container>
-          <Form.Header>
-            <Form.Title>Let&apos;s get started!</Form.Title>
-            <Form.Description>
-              You can customize your page with links and content embed.
-            </Form.Description>
-          </Form.Header>
+  const [step, setStep] = useState(steps[0]);
 
-          <Form.Items>
-            <div className='flex space-x-4'>
-              <div className='h-[72px] w-full max-w-[72px] rounded-full bg-gray-300' />
-              <Form.Field name='name'>
+  return (
+    <div className='relative mx-auto flex w-full max-w-screen-xl flex-col items-center justify-center'>
+      {step === 1 && (
+        <Form>
+          <Form.Container>
+            <Form.Header>
+              <Form.Title>Let&apos;s get started!</Form.Title>
+              <Form.Description>
+                This information will appear on your{' '}
+                <span className='font-medium'>treek</span> page.
+              </Form.Description>
+            </Form.Header>
+
+            <Form.Items>
+              <div className='flex space-x-4'>
+                <div className='h-[72px] w-full max-w-[72px] rounded-full bg-gray-300' />
+                <Form.Field name='name'>
+                  <Form.LabelWrapper>
+                    <Form.Label>Name</Form.Label>
+                    <Form.Message match='valueMissing'>
+                      Please provide a name
+                    </Form.Message>
+                  </Form.LabelWrapper>
+                  <Form.Input type='text' placeholder='First Last' required />
+                </Form.Field>
+              </div>
+
+              <Form.Field name='link'>
                 <Form.LabelWrapper>
-                  <Form.Label>Name</Form.Label>
+                  <Form.Label>Username</Form.Label>
                   <Form.Message match='valueMissing'>
-                    Please provide a name
+                    Please choose your link
+                  </Form.Message>
+                  <Form.Message match='tooShort'>
+                    Your link needs to be at least 4 chars
                   </Form.Message>
                 </Form.LabelWrapper>
-                <Form.Input type='text' placeholder='First Last' required />
+                <Form.Input
+                  type='text'
+                  placeholder='codingcodax'
+                  minLength={4}
+                  required
+                />
               </Form.Field>
-            </div>
 
-            <Form.Field name='bio'>
-              <Form.LabelWrapper>
-                <Form.Label>Bio</Form.Label>
-              </Form.LabelWrapper>
-              <Form.Textarea
-                className='max-h-28 min-h-[60px] w-full'
-                placeholder='UI/UX Designer'
-              />
-            </Form.Field>
-          </Form.Items>
-          <Form.Button>Continue</Form.Button>
-        </Form.Container>
-      </Form>
+              <Form.Field name='bio'>
+                <Form.LabelWrapper>
+                  <Form.Label>Bio</Form.Label>
+                </Form.LabelWrapper>
+                <Form.Textarea
+                  className='max-h-28 min-h-[60px] w-full'
+                  placeholder='UI/UX Designer'
+                />
+              </Form.Field>
+            </Form.Items>
+            <Form.Button>Continue</Form.Button>
+          </Form.Container>
+        </Form>
+      )}
+
+      {step === 2 && (
+        <Form>
+          <Form.Container>
+            <Form.Header>
+              <Form.Title>Almost there!</Form.Title>
+              <Form.Description>Please add more information.</Form.Description>
+            </Form.Header>
+
+            <Form.Items>
+              <Form.Field name='location'>
+                <Form.LabelWrapper>
+                  <Form.Label>Location</Form.Label>
+                </Form.LabelWrapper>
+                <Form.Input type='text' placeholder='LA, USA' />
+              </Form.Field>
+
+              <Form.Field name='instagram'>
+                <Form.LabelWrapper>
+                  <Form.Label>Instagram</Form.Label>
+                </Form.LabelWrapper>
+                <Form.Input type='text' placeholder='leerob' />
+              </Form.Field>
+
+              <Form.Field name='twitter'>
+                <Form.LabelWrapper>
+                  <Form.Label>Twitter</Form.Label>
+                </Form.LabelWrapper>
+                <Form.Input type='text' placeholder='shadcn' />
+              </Form.Field>
+
+              <Form.Field name='youtube'>
+                <Form.LabelWrapper>
+                  <Form.Label>YouTube</Form.Label>
+                </Form.LabelWrapper>
+                <Form.Input type='text' placeholder='codingcodax' />
+              </Form.Field>
+            </Form.Items>
+
+            <Form.Button>Finalize</Form.Button>
+          </Form.Container>
+        </Form>
+      )}
+
+      <div className='absolute bottom-8 grid grid-cols-2 gap-4'>
+        {steps.map((stp) => (
+          <button
+            className={cn(
+              'h-4 w-4 rounded-full border border-gray-700 bg-gray-400',
+              'hover:border-gray-800 hover:bg-gray-800',
+              'outline-indigo-800 focus:outline',
+              stp === step ? 'bg-gray-1200 hover:bg-gray=1200' : ''
+            )}
+            onClick={() => setStep(stp)}
+          />
+        ))}
+      </div>
     </div>
   );
 };
