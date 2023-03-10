@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import { tv, type VariantProps } from 'tailwind-variants';
 import { cn } from '~/utils';
 
@@ -36,15 +37,21 @@ const buttonStyles = tv({
 
 type ButtonVariants = VariantProps<typeof buttonStyles>;
 
-export interface Props extends ButtonOrLinkProps, ButtonVariants {}
+export interface Props extends ButtonOrLinkProps, ButtonVariants { }
 
-const Button = ({ intent, size, className, ...props }: Props) => {
-  return (
-    <ButtonOrLink
-      className={buttonStyles({ intent, size, class: className })}
-      {...props}
-    />
-  );
-};
+const Button = forwardRef<HTMLButtonElement, Props>(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  ({ intent, size, className, ref, ...props }, forwardRef) => {
+    return (
+      <ButtonOrLink
+        className={buttonStyles({ intent, size, class: className })}
+        ref={forwardRef}
+        {...props}
+      />
+    );
+  }
+);
+
+Button.displayName = 'Button';
 
 export default Button;
