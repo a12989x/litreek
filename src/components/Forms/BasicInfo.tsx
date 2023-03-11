@@ -1,5 +1,6 @@
-import { useSession } from 'next-auth/react';
 import { type FormEventHandler } from 'react';
+import Image from 'next/image';
+import { useSession } from 'next-auth/react';
 
 import { Form } from '~/components/ui';
 
@@ -9,6 +10,8 @@ type Props = {
 
 const BasicInfo = ({ onSubmit }: Props) => {
   const { data } = useSession();
+
+  console.log(data);
 
   return (
     <Form onSubmit={onSubmit}>
@@ -23,7 +26,13 @@ const BasicInfo = ({ onSubmit }: Props) => {
 
         <Form.Items>
           <div className='flex space-x-4'>
-            <div className='h-[72px] w-full max-w-[72px] rounded-full bg-gray-300' />
+            <Image
+              alt='user profile'
+              width={100}
+              height={100}
+              src={data?.user.image ?? 'https://avatar.vercel.sh/treek.link'}
+              className='h-[72px] w-full max-w-[72px] rounded-full bg-gray-300'
+            />
             <Form.Field name='name'>
               <Form.LabelWrapper>
                 <Form.Label>Name</Form.Label>
