@@ -16,6 +16,7 @@ import FormOrDivider from './FormOrDivider';
 import FormSecondaryButton from './FormSecondaryButton';
 import FormTextarea from './FormTextarea';
 import FormTitle from './FormTitle';
+import FormUsername from './FormUsername';
 
 interface Props extends FormProps {
   children: React.ReactNode;
@@ -42,6 +43,7 @@ Form.LabelWrapper = FormLabelWrapper;
 Form.Label = FormLabel;
 Form.Message = FormMessage;
 Form.Input = FormInput;
+Form.Username = FormUsername;
 Form.Textarea = FormTextarea;
 Form.Button = FormButton;
 Form.SecondaryButton = FormSecondaryButton;
