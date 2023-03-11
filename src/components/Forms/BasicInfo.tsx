@@ -1,3 +1,4 @@
+import { useSession } from 'next-auth/react';
 import { type FormEventHandler } from 'react';
 
 import { Form } from '~/components/ui';
@@ -7,6 +8,8 @@ type Props = {
 };
 
 const BasicInfo = ({ onSubmit }: Props) => {
+  const { data } = useSession();
+
   return (
     <Form onSubmit={onSubmit}>
       <Form.Container>
@@ -34,6 +37,7 @@ const BasicInfo = ({ onSubmit }: Props) => {
               </Form.LabelWrapper>
               <Form.Input
                 type='text'
+                defaultValue={data?.user.name ?? ''}
                 placeholder='First Last'
                 minLength={4}
                 required
