@@ -6,7 +6,8 @@ import { type Props as InputProps } from '~/components/ui/Input';
 import FormInput from './FormInput';
 
 type Props = InputProps;
-const FormUsername = ({}: Props) => {
+
+const FormUsername = ({ ...props }: Props) => {
   return (
     <div className='relative w-full'>
       <Label
@@ -22,6 +23,7 @@ const FormUsername = ({}: Props) => {
         className={cn('w-full pl-[92.3167px]')}
         minLength={4}
         required
+        {...props}
       />
     </div>
   );
