@@ -2,8 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { type NextPage } from 'next';
 import { cn } from '~/utils';
 
-import AdditionalInfo from '~/components/Forms/AdditionalInfo';
-import BasicInfo from '~/components/Forms/BasicInfo';
+import { AdditionalInfo, BasicInfo } from '~/components/Forms';
 
 const steps = [1, 2];
 
