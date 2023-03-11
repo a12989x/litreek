@@ -12,6 +12,10 @@ type InfoType = {
   name: FormDataEntryValue;
   username: FormDataEntryValue;
   bio: FormDataEntryValue;
+  location: FormDataEntryValue;
+  instagram: FormDataEntryValue;
+  twitter: FormDataEntryValue;
+  youtube: FormDataEntryValue;
 };
 
 const Setup: NextPage = () => {
@@ -22,6 +26,10 @@ const Setup: NextPage = () => {
     name: '',
     username: '',
     bio: '',
+    location: '',
+    instagram: '',
+    twitter: '',
+    youtube: '',
   });
 
   const handleSubmitOne = (event: FormEvent<HTMLFormElement>) => {
