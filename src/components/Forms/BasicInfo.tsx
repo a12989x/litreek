@@ -54,22 +54,17 @@ const BasicInfo = ({ onSubmit }: Props) => {
             </Form.Field>
           </div>
 
-          <Form.Field name='link'>
+          <Form.Field name='username'>
             <Form.LabelWrapper>
-              <Form.Label>Username</Form.Label>
+              <Form.Label htmlFor='username'>Username</Form.Label>
               <Form.Message match='valueMissing'>
-                Please choose your link
+                Please provide a username
               </Form.Message>
               <Form.Message match='tooShort'>
-                Your link needs to be at least 4 chars
+                Your username needs to be at least 4 chars
               </Form.Message>
             </Form.LabelWrapper>
-            <Form.Input
-              type='text'
-              placeholder='codingcodax'
-              minLength={4}
-              required
-            />
+            <Form.Username />
           </Form.Field>
 
           <Form.Field name='bio'>
