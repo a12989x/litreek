@@ -1,18 +1,17 @@
 import { type FormEventHandler } from 'react';
 import Image from 'next/image';
-import { useSession } from 'next-auth/react';
 
 import { Form } from '~/components/ui';
 
 type Props = {
+  image: FormDataEntryValue;
+  name: FormDataEntryValue;
+  username: FormDataEntryValue;
+  bio: FormDataEntryValue;
   onSubmit: FormEventHandler<HTMLFormElement>;
 };
 
-const BasicInfo = ({ onSubmit }: Props) => {
-  const { data } = useSession();
-
-  console.log(data);
-
+const BasicInfo = ({ image, name, username, bio, onSubmit }: Props) => {
   return (
     <Form onSubmit={onSubmit}>
       <Form.Container>
@@ -30,7 +29,7 @@ const BasicInfo = ({ onSubmit }: Props) => {
               alt='user profile'
               width={100}
               height={100}
-              src={data?.user.image ?? 'https://avatar.vercel.sh/treek.link'}
+              src={image.toString()}
               className='h-[72px] w-full max-w-[72px] rounded-full bg-gray-300'
             />
             <Form.Field name='name'>
@@ -46,7 +45,7 @@ const BasicInfo = ({ onSubmit }: Props) => {
               </Form.LabelWrapper>
               <Form.Input
                 type='text'
-                defaultValue={data?.user.name ?? ''}
+                defaultValue={name.toString()}
                 placeholder='First Last'
                 minLength={4}
                 required
@@ -64,7 +63,7 @@ const BasicInfo = ({ onSubmit }: Props) => {
                 Your username needs to be at least 4 chars
               </Form.Message>
             </Form.LabelWrapper>
-            <Form.Username />
+            <Form.Username defaultValue={username.toString()} />
           </Form.Field>
 
           <Form.Field name='bio'>
@@ -74,6 +73,7 @@ const BasicInfo = ({ onSubmit }: Props) => {
             <Form.Textarea
               className='max-h-28 min-h-[60px] w-full'
               placeholder='UI/UX Designer'
+              defaultValue={bio.toString()}
             />
           </Form.Field>
         </Form.Items>
