@@ -9,6 +9,22 @@
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.googleusercontent.com',
+        port: '',
+        pathname: '/a/*',
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatar.vercel.sh',
+        port: '',
+        pathname: '/*',
+      },
+    ],
+  },
 
   /**
    * If you have the "experimental: { appDir: true }" setting enabled, then you
