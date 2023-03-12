@@ -24,6 +24,12 @@ declare module 'next-auth' {
       id: string;
       // ...other properties
       // role: UserRole;
+      stripeId?: string;
+      plan?: string;
+      billingCycleStart?: number;
+      username?: string;
+      bio?: string;
+      location?: string;
     } & DefaultSession['user'];
   }
 
