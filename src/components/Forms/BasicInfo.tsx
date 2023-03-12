@@ -1,5 +1,7 @@
 import { type FormEventHandler } from 'react';
 import Image from 'next/image';
+import { useSession } from 'next-auth/react';
+import { cn } from '~/utils';
 
 import { Form } from '~/components/ui';
 
@@ -12,6 +14,16 @@ type Props = {
 };
 
 const BasicInfo = ({ image, name, username, bio, onSubmit }: Props) => {
+  const { data, status } = useSession();
+
+  const isLoading = status === 'loading' ? true : false;
+  const currentImage = image ? image.toString() : data?.user.image ?? '';
+  const currentName = name ? name.toString() : data?.user.name ?? '';
+  const currentUsername = username
+    ? username.toString()
+    : data?.user.username ?? '';
+  const currentBio = bio ? bio.toString() : data?.user.bio ?? '';
+
   return (
     <Form onSubmit={onSubmit}>
       <Form.Container>
@@ -29,8 +41,11 @@ const BasicInfo = ({ image, name, username, bio, onSubmit }: Props) => {
               alt='user profile'
               width={100}
               height={100}
-              src={image.toString()}
-              className='h-[72px] w-full max-w-[72px] rounded-full bg-gray-300'
+              src={currentImage}
+              className={cn(
+                'h-[72px] w-full max-w-[72px] rounded-full bg-gray-300',
+                isLoading ? 'animate-pulse' : ''
+              )}
             />
             <Form.Field name='name'>
               <Form.LabelWrapper>
@@ -45,9 +60,10 @@ const BasicInfo = ({ image, name, username, bio, onSubmit }: Props) => {
               </Form.LabelWrapper>
               <Form.Input
                 type='text'
-                defaultValue={name.toString()}
+                defaultValue={currentName}
                 placeholder='First Last'
                 minLength={4}
+                disabled={isLoading}
                 required
               />
             </Form.Field>
@@ -63,7 +79,10 @@ const BasicInfo = ({ image, name, username, bio, onSubmit }: Props) => {
                 Your username needs to be at least 4 chars
               </Form.Message>
             </Form.LabelWrapper>
-            <Form.Username defaultValue={username.toString()} />
+            <Form.Username
+              defaultValue={currentUsername}
+              disabled={isLoading}
+            />
           </Form.Field>
 
           <Form.Field name='bio'>
@@ -73,7 +92,8 @@ const BasicInfo = ({ image, name, username, bio, onSubmit }: Props) => {
             <Form.Textarea
               className='max-h-28 min-h-[60px] w-full'
               placeholder='UI/UX Designer'
-              defaultValue={bio.toString()}
+              defaultValue={currentBio}
+              disabled={isLoading}
             />
           </Form.Field>
         </Form.Items>
