@@ -1,6 +1,5 @@
 import { useState, type FormEvent } from 'react';
 import { type NextPage } from 'next';
-import { useSession } from 'next-auth/react';
 import { cn } from '~/utils';
 
 import { AdditionalInfo, BasicInfo } from '~/components/Forms';
@@ -19,7 +18,6 @@ type InfoType = {
 };
 
 const Setup: NextPage = () => {
-  const { data } = useSession();
   const [step, setStep] = useState(steps[0]);
   const [info, setInfo] = useState<InfoType>({
     image: '',
@@ -51,18 +49,7 @@ const Setup: NextPage = () => {
 
   return (
     <div className='relative mx-auto flex w-full max-w-screen-xl flex-col items-center justify-center'>
-      {step === 1 && (
-        <BasicInfo
-          onSubmit={handleSubmitOne}
-          {...info}
-          image={
-            !info.image
-              ? data?.user.image ?? 'https://avatar.vercel.sh/treek.link'
-              : info.image
-          }
-          name={!info.name ? data?.user.name ?? '' : info.name}
-        />
-      )}
+      {step === 1 && <BasicInfo onSubmit={handleSubmitOne} {...info} />}
 
       {step === 2 && (
         <AdditionalInfo onSubmit={handleSubmitTwo} onGoBack={handleGoBack} />
