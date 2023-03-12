@@ -85,7 +85,7 @@ model User {
     sessions          Session[]
     username          String?   @unique
     bio               String?
-    location          String
+    location          String?
     links             Link[]
 }
 
