@@ -11,10 +11,18 @@ type Props = {
   name: FormDataEntryValue;
   username: FormDataEntryValue;
   bio: FormDataEntryValue;
+  location: FormEventHandler;
   onSubmit: FormEventHandler<HTMLFormElement>;
 };
 
-const BasicInfo = ({ image, name, username, bio, onSubmit }: Props) => {
+const BasicInfo = ({
+  image,
+  name,
+  username,
+  bio,
+  location,
+  onSubmit,
+}: Props) => {
   const { data: sessionData } = useSession();
   const { data, isLoading } = api.user.get.useQuery(undefined, {
     enabled: sessionData?.user !== undefined,
@@ -26,6 +34,7 @@ const BasicInfo = ({ image, name, username, bio, onSubmit }: Props) => {
   const currentName = name ? name.toString() : data?.name ?? '';
   const currentUsername = username ? username.toString() : data?.username ?? '';
   const currentBio = bio ? bio.toString() : data?.bio ?? '';
+  const currentLocation = location ? location.toString() : data?.location ?? '';
 
   return (
     <Form onSubmit={onSubmit}>
@@ -97,6 +106,17 @@ const BasicInfo = ({ image, name, username, bio, onSubmit }: Props) => {
               placeholder='UI/UX Designer'
               defaultValue={currentBio}
               disabled={isLoading}
+            />
+          </Form.Field>
+
+          <Form.Field name='location'>
+            <Form.LabelWrapper>
+              <Form.Label>Location</Form.Label>
+            </Form.LabelWrapper>
+            <Form.Input
+              type='text'
+              placeholder='San Francisco, CA'
+              defaultValue={currentLocation}
             />
           </Form.Field>
         </Form.Items>
