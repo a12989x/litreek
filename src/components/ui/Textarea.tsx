@@ -15,7 +15,7 @@ const textareaStyles = tv({
 
 type TextareaVariants = VariantProps<typeof textareaStyles>;
 
-export interface Props extends TextareaProps, TextareaVariants { }
+export interface Props extends TextareaProps, TextareaVariants {}
 
 const Textarea = forwardRef<HTMLTextAreaElement, Props>(
   ({ className, ...props }, ref) => {
