@@ -5,7 +5,7 @@ import { Form } from '~/components/ui';
 type Props = {
   onSubmit: FormEventHandler<HTMLFormElement>;
   onGoBack?: MouseEventHandler<HTMLButtonElement> &
-  MouseEventHandler<HTMLAnchorElement>;
+    MouseEventHandler<HTMLAnchorElement>;
 };
 
 const AdditionalInfo = ({ onSubmit, onGoBack }: Props) => {
