@@ -11,7 +11,7 @@ type Props = {
   name: FormDataEntryValue;
   username: FormDataEntryValue;
   bio: FormDataEntryValue;
-  location: FormEventHandler;
+  location: FormDataEntryValue;
   onSubmit: FormEventHandler<HTMLFormElement>;
 };
 
