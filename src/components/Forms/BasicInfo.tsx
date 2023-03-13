@@ -20,7 +20,6 @@ const BasicInfo = ({ image, name, username, bio, onSubmit }: Props) => {
     enabled: sessionData?.user !== undefined,
   });
 
-  // const isLoading = status === 'loading' ? true : false;
   const currentImage = image
     ? image.toString()
     : data?.image ?? 'https://avatar.vercel.sh/treek.link';
