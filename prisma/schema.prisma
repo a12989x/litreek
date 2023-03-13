@@ -25,13 +25,13 @@ model Link {
     id          String   @id @default(cuid())
     userId      String
     domain      String
-    ulr         String   @db.Text
+    url         String   @db.Text
     type        String
     name        String
     description String?
     alignment   String?
     thumbnail   String?
-    cta         String
+    cta         String?
     visible     Boolean  @default(true)
     clicks      Int      @default(0)
     position    Int
