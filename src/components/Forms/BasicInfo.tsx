@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import { cn } from '~/utils';
 
+import { api } from '~/utils/api';
 import { Form } from '~/components/ui';
 
 type Props = {
@@ -14,15 +15,18 @@ type Props = {
 };
 
 const BasicInfo = ({ image, name, username, bio, onSubmit }: Props) => {
-  const { data, status } = useSession();
+  const { data: sessionData } = useSession();
+  const { data, isLoading } = api.user.get.useQuery(undefined, {
+    enabled: sessionData?.user !== undefined,
+  });
 
-  const isLoading = status === 'loading' ? true : false;
-  const currentImage = image ? image.toString() : data?.user.image ?? '';
-  const currentName = name ? name.toString() : data?.user.name ?? '';
-  const currentUsername = username
-    ? username.toString()
-    : data?.user.username ?? '';
-  const currentBio = bio ? bio.toString() : data?.user.bio ?? '';
+  // const isLoading = status === 'loading' ? true : false;
+  const currentImage = image
+    ? image.toString()
+    : data?.image ?? 'https://avatar.vercel.sh/treek.link';
+  const currentName = name ? name.toString() : data?.name ?? '';
+  const currentUsername = username ? username.toString() : data?.username ?? '';
+  const currentBio = bio ? bio.toString() : data?.bio ?? '';
 
   return (
     <Form onSubmit={onSubmit}>
