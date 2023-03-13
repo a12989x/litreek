@@ -5,7 +5,7 @@ import { Form } from '~/components/ui';
 type Props = {
   onSubmit: FormEventHandler<HTMLFormElement>;
   onGoBack?: MouseEventHandler<HTMLButtonElement> &
-  MouseEventHandler<HTMLAnchorElement>;
+    MouseEventHandler<HTMLAnchorElement>;
 };
 
 const AdditionalInfo = ({ onSubmit, onGoBack }: Props) => {
@@ -24,7 +24,7 @@ const AdditionalInfo = ({ onSubmit, onGoBack }: Props) => {
             <Form.LabelWrapper>
               <Form.Label>Location</Form.Label>
             </Form.LabelWrapper>
-            <Form.Input type='text' placeholder='LA, USA' />
+            <Form.Input type='text' placeholder='San Francisco, CA' />
           </Form.Field>
 
           <Form.Field name='instagram'>
