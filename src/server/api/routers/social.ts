@@ -1,3 +1,5 @@
+import { z } from 'zod';
+
 import { createTRPCRouter, protectedProcedure } from '~/server/api/trpc';
 
 const socialRouter = createTRPCRouter({
@@ -10,6 +12,14 @@ const socialRouter = createTRPCRouter({
     });
 
     return socials;
+  }),
+
+  get: protectedProcedure.input(z.string()).query(({ ctx, input }) => {
+    const social = ctx.prisma.link.findUnique({
+      where: { id: input },
+    });
+
+    return social;
   }),
 });
 
