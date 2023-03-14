@@ -10,6 +10,14 @@ const socialRouter = createTRPCRouter({
       where: {
         AND: [{ userId: uId }, { type: 'social' }],
       },
+      select: {
+        domain: true,
+        url: true,
+        type: true,
+        name: true,
+        thumbnail: true,
+        position: true,
+      },
     });
 
     return socials;
