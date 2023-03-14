@@ -14,9 +14,7 @@ const AdditionalInfo = ({ onSubmit, onGoBack }: Props) => {
       <Form.Container>
         <Form.Header>
           <Form.Title>Almost there!</Form.Title>
-          <Form.Description>
-            Please add your location and some social links.
-          </Form.Description>
+          <Form.Description>Please add some social links.</Form.Description>
         </Form.Header>
 
         <Form.Items>
