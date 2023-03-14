@@ -1,3 +1,5 @@
+import { updateUserSchema } from '~/schemas';
+
 import { createTRPCRouter, protectedProcedure } from '~/server/api/trpc';
 
 const userRouter = createTRPCRouter({
@@ -16,6 +18,18 @@ const userRouter = createTRPCRouter({
 
     return user;
   }),
+
+  update: protectedProcedure
+    .input(updateUserSchema)
+    .mutation(({ ctx, input }) => {
+      const userId = ctx.session.user.id;
+      const updatedUser = ctx.prisma.user.update({
+        where: { id: userId },
+        data: { ...input },
+      });
+
+      return updatedUser;
+    }),
 });
 
 export default userRouter;
