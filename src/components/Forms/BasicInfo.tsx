@@ -1,19 +1,15 @@
 import { type FormEventHandler } from 'react';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
+import { type User } from '~/types';
 import { cn } from '~/utils';
 
 import { api } from '~/utils/api';
 import { Form } from '~/components/ui';
 
-type Props = {
-  image: FormDataEntryValue;
-  name: FormDataEntryValue;
-  username: FormDataEntryValue;
-  bio: FormDataEntryValue;
-  location: FormDataEntryValue;
+interface Props extends User {
   onSubmit: FormEventHandler<HTMLFormElement>;
-};
+}
 
 const BasicInfo = ({
   image,
@@ -29,12 +25,12 @@ const BasicInfo = ({
   });
 
   const currentImage = image
-    ? image.toString()
+    ? image
     : data?.image ?? 'https://avatar.vercel.sh/treek.link';
-  const currentName = name ? name.toString() : data?.name ?? '';
-  const currentUsername = username ? username.toString() : data?.username ?? '';
-  const currentBio = bio ? bio.toString() : data?.bio ?? '';
-  const currentLocation = location ? location.toString() : data?.location ?? '';
+  const currentName = name ? name : data?.name ?? '';
+  const currentUsername = username ? username : data?.username ?? '';
+  const currentBio = bio ? bio : data?.bio ?? '';
+  const currentLocation = location ? location : data?.location ?? '';
 
   return (
     <Form onSubmit={onSubmit}>
