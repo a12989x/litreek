@@ -1,17 +1,38 @@
 import { useState, type FormEvent } from 'react';
 import { type NextPage } from 'next';
+import { useRouter } from 'next/router';
 import { socials as socialsData } from '~/data';
 import { type User } from '~/types';
 import { cn } from '~/utils';
 
+import { api } from '~/utils/api';
 import { AdditionalInfo, BasicInfo } from '~/components/Forms';
 
 const steps = [1, 2];
 
 const Setup: NextPage = () => {
+  const router = useRouter();
   const [step, setStep] = useState(steps[0]);
   const [user, setUser] = useState<User>({ image: '', name: '', username: '' });
   const [socials, setSocials] = useState<{ [k: string]: string }>();
+
+  const { mutate: updateUser } = api.user.update.useMutation({
+    onSuccess: () => {
+      console.log('User succesfully updated!');
+    },
+    onError: () => {
+      console.log('User cannot be updated!');
+    },
+  });
+
+  const { mutate: upsertSocial } = api.social.upsert.useMutation({
+    onSuccess: () => {
+      console.log('Social succesfully updated/created!');
+    },
+    onError: () => {
+      console.log('Social cannot be updated/created!');
+    },
+  });
 
   const handleSubmitOne = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -32,15 +53,29 @@ const Setup: NextPage = () => {
     const data = Object.fromEntries(new FormData(event.currentTarget)) as {
       [k: string]: string;
     };
-    const result = socialsData.map(({ baseUrl, name, thumbnail }, index) => ({
-      url: `${baseUrl}${data[name]?.toString() ?? ''}`,
-      type: 'social',
-      name,
-      thumbnail,
-      position: index + 1,
-    }));
+    const socialsCreated = socialsData.map(
+      ({ baseUrl, name, thumbnail }, index) => ({
+        url: `${baseUrl}${data[name]?.toString() ?? ''}`,
+        type: 'social',
+        name,
+        thumbnail,
+        position: index + 1,
+      })
+    );
 
-    setSocials(data);
+    try {
+      setSocials(data);
+
+      updateUser(user);
+
+      socialsCreated.map((social) => {
+        upsertSocial(social);
+      });
+
+      void router.push('/dashboard');
+    } catch (error) {
+      throw new Error('Something went wrong!');
+    }
   };
 
   return (
