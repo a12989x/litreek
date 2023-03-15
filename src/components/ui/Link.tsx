@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import { tv, type VariantProps } from 'tailwind-variants';
 import { cn } from '~/utils';
 
@@ -29,25 +30,32 @@ interface Props extends ButtonOrLinkProps, LinkVariants {
   isExternal?: boolean;
 }
 
-const Link = ({ intent, className, href, isExternal, ...props }: Props) => {
-  if (isExternal)
+const Link = forwardRef<HTMLAnchorElement, Props>(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  ({ intent, className, href, isExternal, ref, ...props }, forwardRef) => {
+    if (isExternal)
+      return (
+        <ButtonOrLink
+          target='_blank'
+          rel='noopener noreferrer'
+          className={linkStyles({ intent, className })}
+          href={href}
+          ref={forwardRef}
+          {...props}
+        />
+      );
+
     return (
       <ButtonOrLink
-        target='_blank'
-        rel='noopener noreferrer'
         className={linkStyles({ intent, className })}
         href={href}
+        ref={forwardRef}
         {...props}
       />
     );
+  }
+);
 
-  return (
-    <ButtonOrLink
-      className={linkStyles({ intent, className })}
-      href={href}
-      {...props}
-    />
-  );
-};
+Link.displayName = 'Link';
 
 export default Link;
