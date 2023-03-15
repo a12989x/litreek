@@ -8,12 +8,11 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   const { asPath } = useRouter();
-  const showHeader =
-    asPath === '/' ||
-    asPath.includes('/#') ||
-    asPath === '/register' ||
-    asPath === '/login';
-  const showFooter = asPath === '/' || asPath.includes('/#');
+  const showHeader = !asPath.includes('/setup');
+  const showFooter =
+    !asPath.includes('/login') &&
+    !asPath.includes('/register') &&
+    !asPath.includes('/setup');
 
   return (
     <div
