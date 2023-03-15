@@ -11,7 +11,6 @@ const socialRouter = createTRPCRouter({
         AND: [{ userId: uId }, { type: 'social' }],
       },
       select: {
-        domain: true,
         url: true,
         type: true,
         name: true,
@@ -40,6 +39,24 @@ const socialRouter = createTRPCRouter({
       });
 
       return newSocial;
+    }),
+
+  upsert: protectedProcedure
+    .input(createSocialSchema)
+    .mutation(({ ctx, input }) => {
+      const uId = ctx.session.user.id;
+      const social = ctx.prisma.link.upsert({
+        where: { name: input.name },
+        update: {
+          url: input.url,
+        },
+        create: {
+          ...input,
+          userId: uId,
+        },
+      });
+
+      return social;
     }),
 });
 
