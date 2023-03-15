@@ -1,39 +1,24 @@
 import { useState, type FormEvent } from 'react';
 import { type NextPage } from 'next';
+import { socials as socialsData } from '~/data';
+import { type User } from '~/types';
 import { cn } from '~/utils';
 
 import { AdditionalInfo, BasicInfo } from '~/components/Forms';
 
 const steps = [1, 2];
 
-type InfoType = {
-  image: FormDataEntryValue;
-  name: FormDataEntryValue;
-  username: FormDataEntryValue;
-  bio: FormDataEntryValue;
-  location: FormDataEntryValue;
-  instagram: FormDataEntryValue;
-  twitter: FormDataEntryValue;
-  youtube: FormDataEntryValue;
-};
-
 const Setup: NextPage = () => {
   const [step, setStep] = useState(steps[0]);
-  const [info, setInfo] = useState<InfoType>({
-    image: '',
-    name: '',
-    username: '',
-    bio: '',
-    location: '',
-    instagram: '',
-    twitter: '',
-    youtube: '',
-  });
+  const [user, setUser] = useState<User>({ image: '', name: '', username: '' });
+  const [socials, setSocials] = useState<{ [k: string]: string }>();
 
   const handleSubmitOne = (event: FormEvent<HTMLFormElement>) => {
-    const data = Object.fromEntries(new FormData(event.currentTarget));
+    event.preventDefault();
 
-    setInfo((prev) => ({ ...prev, ...data }));
+    const data = Object.fromEntries(new FormData(event.currentTarget)) as User;
+
+    setUser(data);
     setStep(steps[1]);
   };
 
@@ -42,17 +27,33 @@ const Setup: NextPage = () => {
   };
 
   const handleSubmitTwo = (event: FormEvent<HTMLFormElement>) => {
-    const data = Object.fromEntries(new FormData(event.currentTarget));
+    event.preventDefault();
 
-    setInfo((prev) => ({ ...prev, ...data }));
+    const data = Object.fromEntries(new FormData(event.currentTarget)) as {
+      [k: string]: string;
+    };
+    const result = socialsData.map(({ baseUrl, name, thumbnail }, index) => ({
+      url: `${baseUrl}${data[name]?.toString() ?? ''}`,
+      type: 'social',
+      name,
+      thumbnail,
+      position: index + 1,
+    }));
+
+    console.log(result);
+    setSocials(data);
   };
 
   return (
     <div className='relative mx-auto flex w-full max-w-screen-xl flex-col items-center justify-center'>
-      {step === 1 && <BasicInfo onSubmit={handleSubmitOne} {...info} />}
+      {step === 1 && <BasicInfo onSubmit={handleSubmitOne} {...user} />}
 
       {step === 2 && (
-        <AdditionalInfo onSubmit={handleSubmitTwo} onGoBack={handleGoBack} />
+        <AdditionalInfo
+          onSubmit={handleSubmitTwo}
+          onGoBack={handleGoBack}
+          socialsState={socials}
+        />
       )}
 
       <div className='absolute bottom-8 flex gap-4'>
