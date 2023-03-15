@@ -1,8 +1,13 @@
+import { useRouter } from 'next/router';
+
 import { Button, Link } from '~/components/ui';
 
 import NavLink from './NavLink';
 
 const Header = () => {
+  const { asPath } = useRouter();
+  const isDashboard = asPath.includes('/dashboard');
+
   return (
     <header className='sticky top-0 z-20'>
       <div className='pointer-events-none absolute top-0 -z-10 h-24 w-full select-none bg-gray-100/20 backdrop-blur [mask-image:linear-gradient(to_bottom,#000_4.8rem,transparent)]' />
@@ -11,24 +16,34 @@ const Header = () => {
           <li>
             <Link href='/'>Logo</Link>
           </li>
-          <NavLink href='/register'>Get Started</NavLink>
-          <NavLink href='/#features'>Features</NavLink>
-          <NavLink href='/#pricing'>Pricing</NavLink>
-          <NavLink href='/#faq'>FAQ</NavLink>
+          {!isDashboard && (
+            <>
+              <NavLink href='/register'>Get Started</NavLink>
+              <NavLink href='/#features'>Features</NavLink>
+              <NavLink href='/#pricing'>Pricing</NavLink>
+              <NavLink href='/#faq'>FAQ</NavLink>
 
-          <li className='!ml-auto'>
-            <Link href='/login' className='hover:bg-gray-400' intent='nav'>
-              Login
-            </Link>
-          </li>
-          <li>
-            <Button size='small' href='/register'>
-              Sign up
-              <span className='font-normal italic'>
-                &nbsp; &mdash; it&apos;s free
-              </span>
-            </Button>
-          </li>
+              <li className='!ml-auto'>
+                <Link href='/login' className='hover:bg-gray-400' intent='nav'>
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Button size='small' href='/register'>
+                  Sign up
+                  <span className='font-normal italic'>
+                    &nbsp; &mdash; it&apos;s free
+                  </span>
+                </Button>
+              </li>
+            </>
+          )}
+
+          {isDashboard && (
+            <li className='!ml-auto'>
+              <Button size='small'>user</Button>
+            </li>
+          )}
         </ul>
       </nav>
     </header>
