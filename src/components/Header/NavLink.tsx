@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
-import { Link } from '~/components/ui';
 import { cn } from '~/utils';
+
+import { Link } from '~/components/ui';
 
 type Props = {
   href: string;

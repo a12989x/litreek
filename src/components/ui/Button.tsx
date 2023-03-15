@@ -37,7 +37,7 @@ const buttonStyles = tv({
 
 type ButtonVariants = VariantProps<typeof buttonStyles>;
 
-export interface Props extends ButtonOrLinkProps, ButtonVariants { }
+export interface Props extends ButtonOrLinkProps, ButtonVariants {}
 
 const Button = forwardRef<HTMLButtonElement, Props>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
