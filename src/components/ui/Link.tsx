@@ -26,20 +26,17 @@ const linkStyles = tv({
 type LinkVariants = VariantProps<typeof linkStyles>;
 
 interface Props extends ButtonOrLinkProps, LinkVariants {
-  href: string;
   isExternal?: boolean;
 }
 
-const Link = forwardRef<HTMLAnchorElement, Props>(
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  ({ intent, className, href, isExternal, ref, ...props }, forwardRef) => {
+const Link = forwardRef<HTMLAnchorElement & HTMLButtonElement, Props>(
+  ({ intent, className, isExternal, ...props }, forwardRef) => {
     if (isExternal)
       return (
         <ButtonOrLink
           target='_blank'
           rel='noopener noreferrer'
           className={linkStyles({ intent, className })}
-          href={href}
           ref={forwardRef}
           {...props}
         />
@@ -48,7 +45,6 @@ const Link = forwardRef<HTMLAnchorElement, Props>(
     return (
       <ButtonOrLink
         className={linkStyles({ intent, className })}
-        href={href}
         ref={forwardRef}
         {...props}
       />

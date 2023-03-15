@@ -39,9 +39,8 @@ type ButtonVariants = VariantProps<typeof buttonStyles>;
 
 export interface Props extends ButtonOrLinkProps, ButtonVariants {}
 
-const Button = forwardRef<HTMLAnchorElement, Props>(
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  ({ intent, size, className, ref, ...props }, forwardRef) => {
+const Button = forwardRef<HTMLAnchorElement & HTMLButtonElement, Props>(
+  ({ intent, size, className, ...props }, forwardRef) => {
     return (
       <ButtonOrLink
         className={buttonStyles({ intent, size, class: className })}
