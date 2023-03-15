@@ -40,7 +40,6 @@ const Setup: NextPage = () => {
       position: index + 1,
     }));
 
-    console.log(result);
     setSocials(data);
   };
 
