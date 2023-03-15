@@ -7,10 +7,11 @@ interface Props extends ButtonProps {
   children: React.ReactNode;
 }
 
-const FormSecondaryButton = ({ children, ...props }: Props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const FormSecondaryButton = ({ children, ref, ...props }: Props) => {
   return (
     <FormSubmit asChild>
-      <Button intent='ghost' type='button' className='w-full' {...props}>
+      <Button intent='ghost' className='w-full' {...props}>
         {children}
       </Button>
     </FormSubmit>
