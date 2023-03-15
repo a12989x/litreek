@@ -1,14 +1,23 @@
 import { type FormEventHandler, type MouseEventHandler } from 'react';
+import { useSession } from 'next-auth/react';
+import { socials as socialsData } from '~/data';
 
+import { api } from '~/utils/api';
 import { Form } from '~/components/ui';
 
 type Props = {
+  socialsState?: { [k: string]: string };
   onSubmit: FormEventHandler<HTMLFormElement>;
   onGoBack?: MouseEventHandler<HTMLButtonElement> &
     MouseEventHandler<HTMLAnchorElement>;
 };
 
-const AdditionalInfo = ({ onSubmit, onGoBack }: Props) => {
+const AdditionalInfo = ({ socialsState, onSubmit, onGoBack }: Props) => {
+  const { data: sessionData } = useSession();
+  const { data: socialsResponse } = api.social.getAll.useQuery(undefined, {
+    enabled: sessionData?.user !== undefined,
+  });
+
   return (
     <Form onSubmit={onSubmit}>
       <Form.Container>
@@ -18,37 +27,27 @@ const AdditionalInfo = ({ onSubmit, onGoBack }: Props) => {
         </Form.Header>
 
         <Form.Items>
-          <Form.Field name='instagram'>
-            <Form.LabelWrapper>
-              <Form.Label>Instagram</Form.Label>
-            </Form.LabelWrapper>
-            <Form.Input type='text' placeholder='codingcodax' />
-          </Form.Field>
-
-          <Form.Field name='twitter'>
-            <Form.LabelWrapper>
-              <Form.Label>Twitter</Form.Label>
-            </Form.LabelWrapper>
-            <Form.Input type='text' placeholder='shadcn' />
-          </Form.Field>
-
-          <Form.Field name='youtube'>
-            <Form.LabelWrapper>
-              <Form.Label>YouTube</Form.Label>
-            </Form.LabelWrapper>
-            <Form.Input type='text' placeholder='t3dotgg' />
-          </Form.Field>
-
-          <Form.Field name='linkedin'>
-            <Form.LabelWrapper>
-              <Form.Label>LinkedIn</Form.Label>
-            </Form.LabelWrapper>
-            <Form.Input type='text' placeholder='trushithanarla' />
-          </Form.Field>
+          {socialsData.slice(0, 4).map(({ name, placeholder }) => (
+            <Form.Field key={name} name={name}>
+              <Form.LabelWrapper>
+                <Form.Label>{name}</Form.Label>
+              </Form.LabelWrapper>
+              <Form.Input
+                type='text'
+                placeholder={placeholder}
+                defaultValue={
+                  socialsState
+                    ? 'from state'
+                    : socialsResponse?.find((social) => social.name === name)
+                        ?.url
+                }
+              />
+            </Form.Field>
+          ))}
         </Form.Items>
 
         <Form.Items direction='horizontal'>
-          <Form.SecondaryButton onClick={onGoBack}>
+          <Form.SecondaryButton type='button' onClick={onGoBack}>
             Go back
           </Form.SecondaryButton>
           <Form.Button>Finalize</Form.Button>
