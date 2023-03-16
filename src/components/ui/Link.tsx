@@ -1,10 +1,9 @@
 import { forwardRef } from 'react';
+import NextLink from 'next/link';
 import { tv, type VariantProps } from 'tailwind-variants';
 import { cn } from '~/utils';
 
-import ButtonOrLink, { type Props as ButtonOrLinkProps } from './ButtonOrLink';
-
-const linkStyles = tv({
+export const linkStyles = tv({
   base: cn('rounded-sm outline-indigo-800 focus:outline'),
   variants: {
     intent: {
@@ -23,17 +22,18 @@ const linkStyles = tv({
   defaultVariants: {},
 });
 
+type LinkProps = React.ComponentPropsWithoutRef<typeof NextLink>;
 type LinkVariants = VariantProps<typeof linkStyles>;
 
-interface Props extends ButtonOrLinkProps, LinkVariants {
+export interface Props extends LinkProps, LinkVariants {
   isExternal?: boolean;
 }
 
-const Link = forwardRef<HTMLAnchorElement & HTMLButtonElement, Props>(
+export const Link = forwardRef<HTMLAnchorElement, Props>(
   ({ intent, className, isExternal, ...props }, forwardRef) => {
     if (isExternal)
       return (
-        <ButtonOrLink
+        <NextLink
           target='_blank'
           rel='noopener noreferrer'
           className={linkStyles({ intent, className })}
@@ -43,7 +43,7 @@ const Link = forwardRef<HTMLAnchorElement & HTMLButtonElement, Props>(
       );
 
     return (
-      <ButtonOrLink
+      <NextLink
         className={linkStyles({ intent, className })}
         ref={forwardRef}
         {...props}
@@ -53,5 +53,3 @@ const Link = forwardRef<HTMLAnchorElement & HTMLButtonElement, Props>(
 );
 
 Link.displayName = 'Link';
-
-export default Link;
