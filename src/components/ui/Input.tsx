@@ -2,8 +2,6 @@ import { forwardRef, type ComponentProps } from 'react';
 import { tv, type VariantProps } from 'tailwind-variants';
 import { cn } from '~/utils';
 
-type InputProps = ComponentProps<'input'>;
-
 export const inputStyles = tv({
   base: cn(
     'h-10 rounded-lg border border-gray-700 bg-gray-100 px-4 transition-colors',
@@ -16,11 +14,12 @@ export const inputStyles = tv({
   defaultVariants: {},
 });
 
+type InputProps = ComponentProps<'input'>;
 type InputVariants = VariantProps<typeof inputStyles>;
 
 export interface Props extends InputProps, InputVariants {}
 
-const Input = forwardRef<HTMLInputElement, Props>(
+export const Input = forwardRef<HTMLInputElement, Props>(
   ({ className, ...props }, ref) => {
     return (
       <input
@@ -33,5 +32,3 @@ const Input = forwardRef<HTMLInputElement, Props>(
 );
 
 Input.displayName = 'Input';
-
-export default Input;
