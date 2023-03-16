@@ -2,9 +2,7 @@ import { forwardRef } from 'react';
 import { tv, type VariantProps } from 'tailwind-variants';
 import { cn } from '~/utils';
 
-import ButtonOrLink, { type Props as ButtonOrLinkProps } from './ButtonOrLink';
-
-const buttonStyles = tv({
+export const buttonStyles = tv({
   base: cn(
     'flex w-fit items-center justify-center font-bold',
     'outline-indigo-800 focus:outline'
@@ -35,16 +33,17 @@ const buttonStyles = tv({
   },
 });
 
+type ButtonProps = React.ComponentProps<'button'>;
 type ButtonVariants = VariantProps<typeof buttonStyles>;
 
-export interface Props extends ButtonOrLinkProps, ButtonVariants {}
+export interface Props extends ButtonProps, ButtonVariants {}
 
-const Button = forwardRef<HTMLAnchorElement & HTMLButtonElement, Props>(
-  ({ intent, size, className, ...props }, forwardRef) => {
+export const Button = forwardRef<HTMLButtonElement, Props>(
+  ({ intent, size, className, ...props }, ref) => {
     return (
-      <ButtonOrLink
+      <button
         className={buttonStyles({ intent, size, class: className })}
-        ref={forwardRef}
+        ref={ref}
         {...props}
       />
     );
@@ -52,5 +51,3 @@ const Button = forwardRef<HTMLAnchorElement & HTMLButtonElement, Props>(
 );
 
 Button.displayName = 'Button';
-
-export default Button;
