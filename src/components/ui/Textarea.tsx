@@ -4,20 +4,19 @@ import { cn } from '~/utils';
 
 import { inputStyles } from './Input';
 
-type TextareaProps = ComponentProps<'textarea'>;
-
-const textareaStyles = tv({
+export const textareaStyles = tv({
   extend: inputStyles,
   base: cn('min-h-20 h-auto p-4'),
   variants: {},
   defaultVariants: {},
 });
 
+type TextareaProps = ComponentProps<'textarea'>;
 type TextareaVariants = VariantProps<typeof textareaStyles>;
 
 export interface Props extends TextareaProps, TextareaVariants {}
 
-const Textarea = forwardRef<HTMLTextAreaElement, Props>(
+export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
   ({ className, ...props }, ref) => {
     return (
       <textarea
@@ -30,5 +29,3 @@ const Textarea = forwardRef<HTMLTextAreaElement, Props>(
 );
 
 Textarea.displayName = 'Textarea';
-
-export default Textarea;
