@@ -1,18 +1,20 @@
-import {
-  FormLabel as RadixFormLabel,
-  type LabelProps,
-} from '@radix-ui/react-form';
+import { forwardRef } from 'react';
+import { FormLabel as RadixFormLabel } from '@radix-ui/react-form';
+import { cn } from '~/utils';
 
-interface Props extends LabelProps {
-  children: React.ReactNode;
-}
+type Ref = React.ElementRef<typeof RadixFormLabel>;
+type Props = React.ComponentPropsWithoutRef<typeof RadixFormLabel>;
 
-const FormLabel = ({ children, ...props }: Props) => {
+const FormLabel = forwardRef<Ref, Props>(({ className, ...props }, ref) => {
   return (
-    <RadixFormLabel className='font-medium' {...props}>
-      {children}
-    </RadixFormLabel>
+    <RadixFormLabel
+      ref={ref}
+      className={cn('font-medium', className)}
+      {...props}
+    />
   );
-};
+});
+
+FormLabel.displayName = 'FormLabel';
 
 export default FormLabel;

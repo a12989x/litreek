@@ -1,7 +1,7 @@
 import { signIn } from 'next-auth/react';
 
 import { GitHubIcon } from '~/components/icons';
-import { Button } from '~/components/ui';
+import { Button } from '~/components/ui/Button';
 
 type Props = {
   children: React.ReactNode;

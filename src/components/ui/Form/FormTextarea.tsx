@@ -1,22 +1,26 @@
+import { forwardRef } from 'react';
 import { FormControl } from '@radix-ui/react-form';
+import { cn } from '~/utils';
 
-import { Textarea } from '~/components/ui';
-import { type Props as TextareaProps } from '~/components/ui/Textarea';
+import {
+  Textarea,
+  type Props as TextareaProps,
+} from '~/components/ui/Textarea';
 
-interface Props extends TextareaProps {
-  placeholder: string;
-}
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const FormTextarea = ({ placeholder, ref, ...props }: Props) => {
+type Ref = React.ElementRef<typeof FormControl>;
+type Props = TextareaProps;
+
+const FormTextarea = forwardRef<Ref, Props>(({ className, ...props }, ref) => {
   return (
-    <FormControl asChild>
+    <FormControl ref={ref} asChild>
       <Textarea
-        className='max-h-28 min-h-[60px] w-full'
-        placeholder={placeholder}
+        className={(cn('max-h-28 min-h-[60px] w-full'), className)}
         {...props}
       />
     </FormControl>
   );
-};
+});
+
+FormTextarea.displayName = 'FormTextarea';
 
 export default FormTextarea;

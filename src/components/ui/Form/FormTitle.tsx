@@ -1,9 +1,14 @@
-type Props = {
-  children: React.ReactNode;
-};
+import { forwardRef } from 'react';
+import { cn } from '~/utils';
 
-const FormTitle = ({ children }: Props) => {
-  return <h1 className='text-3xl font-bold'>{children}</h1>;
-};
+type Props = React.ComponentPropsWithoutRef<'h1'>;
+
+const FormTitle = forwardRef<HTMLHeadingElement, Props>(
+  ({ className, ...props }: Props) => {
+    return <h1 className={cn('text-3xl font-bold', className)} {...props} />;
+  }
+);
+
+FormTitle.displayName = 'FormTitle';
 
 export default FormTitle;

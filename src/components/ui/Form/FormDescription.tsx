@@ -1,9 +1,14 @@
-type Props = {
-  children: React.ReactNode;
-};
+import { forwardRef } from 'react';
+import { cn } from '~/utils';
 
-const FormDescription = ({ children }: Props) => {
-  return <h2>{children}</h2>;
-};
+type Props = React.ComponentPropsWithoutRef<'h2'>;
+
+const FormDescription = forwardRef<HTMLHeadingElement, Props>(
+  ({ className, ...props }, ref) => {
+    return <h2 ref={ref} className={cn('', className)} {...props} />;
+  }
+);
+
+FormDescription.displayName = 'FormDescription';
 
 export default FormDescription;

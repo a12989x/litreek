@@ -1,7 +1,11 @@
-type Props = { children: React.ReactNode };
+import { forwardRef } from 'react';
 
-const FormHeader = ({ children }: Props) => {
-  return <div>{children}</div>;
-};
+type Props = React.ComponentPropsWithoutRef<'div'>;
+
+const FormHeader = forwardRef<HTMLDivElement, Props>(({ ...props }, ref) => {
+  return <div ref={ref} {...props} />;
+});
+
+FormHeader.displayName = 'FormHeader';
 
 export default FormHeader;

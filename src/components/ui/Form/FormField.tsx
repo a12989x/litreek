@@ -1,18 +1,16 @@
-import {
-  FormField as RadixFormField,
-  type FormFieldProps,
-} from '@radix-ui/react-form';
+import { forwardRef } from 'react';
+import { FormField as RadixFormField } from '@radix-ui/react-form';
+import { cn } from '~/utils';
 
-interface Props extends FormFieldProps {
-  children: React.ReactNode;
-}
+type Ref = React.ElementRef<typeof RadixFormField>;
+type Props = React.ComponentPropsWithoutRef<typeof RadixFormField>;
 
-const FormField = ({ children, ...props }: Props) => {
+const FormField = forwardRef<Ref, Props>(({ className, ...props }: Props) => {
   return (
-    <RadixFormField className='w-full space-y-2' {...props}>
-      {children}
-    </RadixFormField>
+    <RadixFormField className={cn('w-full space-y-2', className)} {...props} />
   );
-};
+});
+
+FormField.displayName = 'FormField';
 
 export default FormField;

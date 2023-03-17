@@ -1,18 +1,20 @@
-import {
-  FormMessage as RadixFormMessage,
-  type FormMessageProps,
-} from '@radix-ui/react-form';
+import { forwardRef } from 'react';
+import { FormMessage as RadixFormMessage } from '@radix-ui/react-form';
+import { cn } from '~/utils';
 
-interface Props extends FormMessageProps {
-  children: React.ReactNode;
-}
+type Ref = React.ElementRef<typeof RadixFormMessage>;
+type Props = React.ComponentPropsWithoutRef<typeof RadixFormMessage>;
 
-const FormMessage = ({ children, ...props }: Props) => {
+const FormMessage = forwardRef<Ref, Props>(({ className, ...props }, ref) => {
   return (
-    <RadixFormMessage className='text-sm text-red-900' {...props}>
-      {children}
-    </RadixFormMessage>
+    <RadixFormMessage
+      ref={ref}
+      className={cn('text-sm text-red-900', className)}
+      {...props}
+    />
   );
-};
+});
+
+FormMessage.displayName = 'FormMessage';
 
 export default FormMessage;

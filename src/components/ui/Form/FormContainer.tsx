@@ -1,9 +1,18 @@
-type Props = {
-  children: React.ReactNode;
-};
+import { forwardRef } from 'react';
+import { cn } from '~/utils';
 
-const FormContainer = ({ children }: Props) => {
-  return <div className='space-y-6'>{children}</div>;
-};
+type Props = React.ComponentPropsWithoutRef<'div'>;
+
+const FormContainer = forwardRef<HTMLDivElement, Props>(
+  ({ className, children, ...props }, ref) => {
+    return (
+      <div ref={ref} className={cn('space-y-6', className)} {...props}>
+        {children}
+      </div>
+    );
+  }
+);
+
+FormContainer.displayName = 'FormContainer';
 
 export default FormContainer;

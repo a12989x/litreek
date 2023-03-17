@@ -1,18 +1,20 @@
+import { forwardRef } from 'react';
 import { FormSubmit } from '@radix-ui/react-form';
+import { cn } from '~/utils';
 
-import { Button } from '~/components/ui';
-import { type Props as ButtonProps } from '~/components/ui/Button';
+import { Button, type Props as ButtonProps } from '~/components/ui/Button';
 
-interface Props extends ButtonProps {
-  children: React.ReactNode;
-}
+type Ref = React.ElementRef<typeof FormSubmit>;
+type Props = ButtonProps;
 
-const FormButton = ({ children }: Props) => {
+const FormButton = forwardRef<Ref, Props>(({ className, ...props }, ref) => {
   return (
-    <FormSubmit asChild>
-      <Button className='w-full'>{children}</Button>
+    <FormSubmit ref={ref} asChild>
+      <Button className={cn('w-full', className)} {...props} />
     </FormSubmit>
   );
-};
+});
+
+FormButton.displayName = 'FormButton';
 
 export default FormButton;
