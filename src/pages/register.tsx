@@ -1,83 +1,93 @@
 import { type NextPage } from 'next';
 
-import { Form, Input, Link } from '~/components/ui';
+import {
+  Form,
+  FormButton,
+  FormContainer,
+  FormDescription,
+  FormField,
+  FormGitHubButton,
+  FormGoogleButton,
+  FormHeader,
+  FormInput,
+  FormItems,
+  FormLabel,
+  FormLabelWrapper,
+  FormMessage,
+  FormOrDivider,
+  FormTitle,
+  FormUsername,
+} from '~/components/ui/Form';
+import { Link } from '~/components/ui/Link';
 
 const Register: NextPage = () => {
   return (
     <div className='mx-auto flex w-full max-w-screen-xl flex-col items-center justify-center'>
       <Form>
-        <Form.Container>
-          <Form.Header>
-            <Form.Title>Create Account</Form.Title>
-            <Form.Description>
+        <FormContainer>
+          <FormHeader>
+            <FormTitle>Create Account</FormTitle>
+            <FormDescription>
               Already have and account?{' '}
               <Link intent='underline' href='/login'>
                 Login
               </Link>
-            </Form.Description>
-          </Form.Header>
+            </FormDescription>
+          </FormHeader>
 
-          <Form.Items>
-            <Form.Field name='email'>
-              <Form.LabelWrapper>
-                <Form.Label>Email</Form.Label>
-                <Form.Message match='valueMissing'>
+          <FormItems>
+            <FormField name='email'>
+              <FormLabelWrapper>
+                <FormLabel>Email</FormLabel>
+                <FormMessage match='valueMissing'>
                   Please enter your name
-                </Form.Message>
-              </Form.LabelWrapper>
-              <Form.Input
-                type='email'
-                placeholder='name@example.com'
-                required
-              />
-            </Form.Field>
+                </FormMessage>
+              </FormLabelWrapper>
+              <FormInput type='email' placeholder='name@example.com' required />
+            </FormField>
 
-            <Form.Field name='password'>
-              <Form.LabelWrapper>
-                <Form.Label>Password</Form.Label>
-                <Form.Message match='valueMissing'>
+            <FormField name='password'>
+              <FormLabelWrapper>
+                <FormLabel>Password</FormLabel>
+                <FormMessage match='valueMissing'>
                   Please enter a password
-                </Form.Message>
-                <Form.Message match='tooShort'>
+                </FormMessage>
+                <FormMessage match='tooShort'>
                   Your password is to short
-                </Form.Message>
-              </Form.LabelWrapper>
-              <Form.Input
+                </FormMessage>
+              </FormLabelWrapper>
+              <FormInput
                 type='password'
                 id='password'
                 minLength={5}
                 placeholder='securepassword'
                 required
               />
-            </Form.Field>
+            </FormField>
 
-            <div className='relative'>
-              <div className='absolute left-0'>
-                <label
-                  className='flex h-10 items-center justify-center rounded-l-lg pl-4 font-medium'
-                  htmlFor='link'
-                >
-                  treek.link/
-                </label>
-              </div>
-              <Input
-                type='text'
-                id='link'
-                className='w-full pl-[92.3167px]'
-                placeholder='yourname'
-              />
-            </div>
-          </Form.Items>
+            <FormField name='username'>
+              <FormLabelWrapper>
+                <FormLabel htmlFor='username'>Username</FormLabel>
+                <FormMessage match='valueMissing'>
+                  Please provide a username
+                </FormMessage>
+                <FormMessage match='tooShort'>
+                  Your username needs to be at least 4 chars
+                </FormMessage>
+              </FormLabelWrapper>
+              <FormUsername placeholder='yourname' />
+            </FormField>
+          </FormItems>
 
-          <Form.Button>Sign Up with Email</Form.Button>
-        </Form.Container>
+          <FormButton>Sign Up with Email</FormButton>
+        </FormContainer>
 
-        <Form.OrDivider />
+        <FormOrDivider />
 
-        <Form.Items>
-          <Form.GoogleButton>Sign Up with Google</Form.GoogleButton>
-          <Form.GitHubButton>Sign Up with GitHub</Form.GitHubButton>
-        </Form.Items>
+        <FormItems>
+          <FormGoogleButton>Sign Up with Google</FormGoogleButton>
+          <FormGitHubButton>Sign Up with GitHub</FormGitHubButton>
+        </FormItems>
       </Form>
 
       <p className='text-gray-1100 mx-auto mt-6 w-full max-w-md px-12 text-center text-sm'>
