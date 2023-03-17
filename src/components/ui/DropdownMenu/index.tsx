@@ -4,3 +4,4 @@ export { default as DropdownMenuContent } from './DropdownMenuContent';
 export { default as DropdownMenuLabel } from './DropdownMenuLabel';
 export { default as DropdownMenuGroup } from './DropdownMenuGroup';
 export { default as DropdownMenuItem } from './DropdownMenuItem';
+export { default as DropdownMenuSeparator } from './DropdownMenuSeparator';
