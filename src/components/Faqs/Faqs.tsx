@@ -1,4 +1,9 @@
-import { Accordion } from '~/components/ui';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '~/components/ui/Accordion';
 
 const faqs = [
   {
@@ -38,22 +43,34 @@ const Faqs = () => {
       <p className='mb-8 text-2xl'>Need answers? Find them here...</p>
 
       <div className='flex w-full max-w-4xl gap-4'>
-        <Accordion defaultValue={defaultValues}>
-          {faqs.map(({ name, description }) => (
-            <Accordion.Item value={name} key={name}>
-              <Accordion.Name>{name}</Accordion.Name>
-              <Accordion.Description>{description}</Accordion.Description>
-            </Accordion.Item>
-          ))}
+        <Accordion type='multiple' defaultValue={defaultValues} asChild>
+          <ul className='space-y-4'>
+            {faqs.map(({ name, description }) => (
+              <AccordionItem value={name} key={name} asChild>
+                <li>
+                  <AccordionTrigger>{name}</AccordionTrigger>
+                  <AccordionContent>
+                    <p>{description}</p>
+                  </AccordionContent>
+                </li>
+              </AccordionItem>
+            ))}
+          </ul>
         </Accordion>
 
-        <Accordion defaultValue={defaultValues2}>
-          {faqs2.map(({ name, description }) => (
-            <Accordion.Item value={name} key={name}>
-              <Accordion.Name>{name}</Accordion.Name>
-              <Accordion.Description>{description}</Accordion.Description>
-            </Accordion.Item>
-          ))}
+        <Accordion type='multiple' defaultValue={defaultValues2} asChild>
+          <ul className='space-y-4'>
+            {faqs2.map(({ name, description }) => (
+              <AccordionItem value={name} key={name} asChild>
+                <li>
+                  <AccordionTrigger>{name}</AccordionTrigger>
+                  <AccordionContent>
+                    <p>{description}</p>
+                  </AccordionContent>
+                </li>
+              </AccordionItem>
+            ))}
+          </ul>
         </Accordion>
       </div>
     </section>
