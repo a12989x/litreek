@@ -1,68 +1,81 @@
 import { type NextPage } from 'next';
 
-import { Form, Link } from '~/components/ui';
+import {
+  Form,
+  FormButton,
+  FormContainer,
+  FormDescription,
+  FormField,
+  FormGitHubButton,
+  FormGoogleButton,
+  FormHeader,
+  FormInput,
+  FormItems,
+  FormLabel,
+  FormLabelWrapper,
+  FormMessage,
+  FormOrDivider,
+  FormTitle,
+} from '~/components/ui/Form';
+import { Link } from '~/components/ui/Link';
 
 const Login: NextPage = () => {
   return (
     <div className='mx-auto flex w-full max-w-screen-xl items-center justify-center'>
       <Form>
-        <Form.Container>
-          <Form.Header>
-            <Form.Title>Login</Form.Title>
-            <Form.Description>
+        <FormContainer>
+          <FormHeader>
+            <FormTitle>Login</FormTitle>
+            <FormDescription>
               Don&apos;t have an account?{' '}
               <Link intent='underline' href='/register'>
                 Sign Up
               </Link>
-            </Form.Description>
-          </Form.Header>
+            </FormDescription>
+          </FormHeader>
 
-          <Form.Items>
-            <Form.Field name='email'>
-              <Form.LabelWrapper>
-                <Form.Label>Email</Form.Label>
-                <Form.Message match='valueMissing'>
+          <FormItems>
+            <FormField name='email'>
+              <FormLabelWrapper>
+                <FormLabel>Email</FormLabel>
+                <FormMessage match='valueMissing'>
                   Please enter your email
-                </Form.Message>
-                <Form.Message match='typeMismatch'>
+                </FormMessage>
+                <FormMessage match='typeMismatch'>
                   Please provide a valid email
-                </Form.Message>
-              </Form.LabelWrapper>
-              <Form.Input
-                type='email'
-                placeholder='name@example.com'
-                required
-              />
-            </Form.Field>
+                </FormMessage>
+              </FormLabelWrapper>
+              <FormInput type='email' placeholder='name@example.com' required />
+            </FormField>
 
-            <Form.Field name='password'>
-              <Form.LabelWrapper>
-                <Form.Label>Password</Form.Label>
-                <Form.Message match='valueMissing'>
+            <FormField name='password'>
+              <FormLabelWrapper>
+                <FormLabel>Password</FormLabel>
+                <FormMessage match='valueMissing'>
                   Please enter a password
-                </Form.Message>
-                <Form.Message match='tooShort'>
+                </FormMessage>
+                <FormMessage match='tooShort'>
                   Your password is to short
-                </Form.Message>
-              </Form.LabelWrapper>
-              <Form.Input
+                </FormMessage>
+              </FormLabelWrapper>
+              <FormInput
                 type='password'
                 placeholder='securepassword'
                 minLength={5}
                 required
               />
-            </Form.Field>
-          </Form.Items>
+            </FormField>
+          </FormItems>
 
-          <Form.Button>Log In with Email</Form.Button>
-        </Form.Container>
+          <FormButton>Log In with Email</FormButton>
+        </FormContainer>
 
-        <Form.OrDivider />
+        <FormOrDivider />
 
-        <Form.Items>
-          <Form.GoogleButton>Log In with Google</Form.GoogleButton>
-          <Form.GitHubButton>Log In with GitHub</Form.GitHubButton>
-        </Form.Items>
+        <FormItems>
+          <FormGoogleButton>Log In with Google</FormGoogleButton>
+          <FormGitHubButton>Log In with GitHub</FormGitHubButton>
+        </FormItems>
       </Form>
     </div>
   );
