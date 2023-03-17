@@ -1,4 +1,4 @@
-import { forwardRef, type ComponentProps } from 'react';
+import { forwardRef } from 'react';
 import { tv, type VariantProps } from 'tailwind-variants';
 import { cn } from '~/utils';
 
@@ -14,7 +14,7 @@ export const inputStyles = tv({
   defaultVariants: {},
 });
 
-type InputProps = ComponentProps<'input'>;
+type InputProps = React.ComponentPropsWithoutRef<'input'>;
 type InputVariants = VariantProps<typeof inputStyles>;
 
 export interface Props extends InputProps, InputVariants {}
