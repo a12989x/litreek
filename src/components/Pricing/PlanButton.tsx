@@ -1,4 +1,7 @@
-import { Button } from '~/components/ui';
+import { cn } from '~/utils';
+
+import { buttonStyles } from '~/components/ui/Button';
+import { Link } from '~/components/ui/Link';
 
 type Props = {
   isMain: boolean;
@@ -7,13 +10,15 @@ type Props = {
 
 const PlanButton = ({ isMain, children }: Props) => {
   return (
-    <Button
+    <Link
       href='/register'
-      intent={isMain ? 'cta' : 'primary'}
-      className='w-full'
+      className={cn(
+        buttonStyles({ intent: isMain ? 'cta' : 'primary' }),
+        'w-full'
+      )}
     >
       {children}
-    </Button>
+    </Link>
   );
 };
 
