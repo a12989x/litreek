@@ -1,4 +1,4 @@
-import { forwardRef, type ComponentProps } from 'react';
+import { forwardRef } from 'react';
 import { tv, type VariantProps } from 'tailwind-variants';
 import { cn } from '~/utils';
 
@@ -11,7 +11,7 @@ export const textareaStyles = tv({
   defaultVariants: {},
 });
 
-type TextareaProps = ComponentProps<'textarea'>;
+type TextareaProps = React.ComponentPropsWithoutRef<'textarea'>;
 type TextareaVariants = VariantProps<typeof textareaStyles>;
 
 export interface Props extends TextareaProps, TextareaVariants {}
