@@ -33,7 +33,7 @@ export const buttonStyles = tv({
   },
 });
 
-type ButtonProps = React.ComponentProps<'button'>;
+type ButtonProps = React.ComponentPropsWithoutRef<'button'>;
 type ButtonVariants = VariantProps<typeof buttonStyles>;
 
 export interface Props extends ButtonProps, ButtonVariants {}
