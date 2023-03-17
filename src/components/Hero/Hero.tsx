@@ -1,4 +1,7 @@
-import { Button } from '~/components/ui';
+import { cn } from '~/utils';
+
+import { buttonStyles } from '~/components/ui/Button';
+import { Link } from '~/components/ui/Link';
 
 const Hero = () => {
   return (
@@ -16,21 +19,21 @@ const Hero = () => {
         </div>
         <input
           type='text'
-          className='peer/input h-[44px] w-52 pr-6 text-indigo-900 caret-indigo-900 outline-none placeholder:text-gray-800'
+          className='peer/input h-[44px] w-52 pr-6 text-indigo-900 caret-indigo-900 placeholder:text-gray-800 focus:outline-none'
           placeholder='yourname'
         />
-        <Button
+        <Link
           href='/register'
-          size='large'
-          type='submit'
-          intent='cta'
-          className='peer/button bg-none outline-0'
+          className={cn(
+            buttonStyles({ intent: 'cta', size: 'large' }),
+            'peer/button bg-none outline-0'
+          )}
         >
           Claim{' '}
           <span className='font-normal italic'>
             &nbsp; &mdash; it&apos;s free
           </span>
-        </Button>
+        </Link>
         <div className='peer-focus/input:animate-cta-bg peer-hover/input:animate-cta-bg peer-focus/button:animate-cta-bg peer-hover/button:animate-cta-bg absolute inset-0 -z-10 bg-gradient-to-r from-pink-900 via-indigo-900 to-purple-900 bg-[length:165%]' />
       </form>
 
