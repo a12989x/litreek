@@ -1,10 +1,13 @@
 import { type FormEventHandler } from 'react';
+
 import Image from 'next/image';
+
 import { useSession } from 'next-auth/react';
 import { type User } from '~/types';
 import { cn } from '~/utils';
 
 import { api } from '~/utils/api';
+
 import {
   Form,
   FormButton,
@@ -102,7 +105,13 @@ const BasicInfo = ({
                 Your username needs to be at least 4 chars
               </FormMessage>
             </FormLabelWrapper>
-            <FormUsername defaultValue={currentUsername} disabled={isLoading} />
+            <FormUsername
+              required
+              defaultValue={currentUsername}
+              disabled={isLoading}
+              minLength={4}
+              placeholder='yourname'
+            />
           </FormField>
 
           <FormField name='bio'>
