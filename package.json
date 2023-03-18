@@ -15,6 +15,7 @@
     "format:check": "prettier --check . --cache"
   },
   "dependencies": {
+    "@egoist/tailwindcss-icons": "^1.0.7",
     "@next-auth/prisma-adapter": "^1.0.5",
     "@prisma/client": "^4.11.0",
     "@radix-ui/colors": "^0.1.8",
