@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-unknown-property */
 import { type AppType } from 'next/app';
 import { Inter as FontSans } from 'next/font/google';
 import { type Session } from 'next-auth';
