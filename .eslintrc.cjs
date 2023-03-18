@@ -19,6 +19,7 @@ const config = {
   extends: [
     'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
     'plugin:prettier/recommended',
     'plugin:tailwindcss/recommended',
   ],
@@ -42,6 +43,15 @@ const config = {
     '@next/next/no-html-link-for-pages': 'off',
     'react/jsx-key': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/jsx-sort-props': [
+      'warn',
+      {
+        callbacksLast: true,
+        shorthandFirst: true,
+        noSortAlphabetically: false,
+        reservedFirst: true,
+      },
+    ],
     'tailwindcss/no-custom-classname': 'off',
   },
   settings: {
