@@ -19,6 +19,12 @@ const config = {
       },
       {
         protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        port: '',
+        pathname: '/u/*',
+      },
+      {
+        protocol: 'https',
         hostname: 'avatar.vercel.sh',
         port: '',
         pathname: '/*',
