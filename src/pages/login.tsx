@@ -1,5 +1,6 @@
-import { type NextPage } from 'next';
+import { type GetServerSideProps, type NextPage } from 'next';
 
+import { getServerAuthSession } from '~/server/auth';
 import {
   Form,
   FormButton,
@@ -18,6 +19,17 @@ import {
   FormTitle,
 } from '~/components/ui/Form';
 import { Link } from '~/components/ui/Link';
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await getServerAuthSession(ctx);
+
+  if (session)
+    return {
+      redirect: { destination: '/dashboard', permanent: false },
+    };
+
+  return { props: { session } };
+};
 
 const Login: NextPage = () => {
   return (
