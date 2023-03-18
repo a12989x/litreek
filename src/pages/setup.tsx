@@ -12,7 +12,7 @@ import { AdditionalInfo, BasicInfo } from '~/components/Forms';
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const session = await getServerAuthSession(ctx);
 
-  if (session)
+  if (!session)
     return {
       redirect: { destination: '/login', permanent: false },
     };
