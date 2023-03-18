@@ -5,7 +5,22 @@ import { type User } from '~/types';
 import { cn } from '~/utils';
 
 import { api } from '~/utils/api';
-import { Form } from '~/components/ui';
+import {
+  Form,
+  FormButton,
+  FormContainer,
+  FormDescription,
+  FormField,
+  FormHeader,
+  FormInput,
+  FormItems,
+  FormLabel,
+  FormLabelWrapper,
+  FormMessage,
+  FormTextarea,
+  FormTitle,
+  FormUsername,
+} from '~/components/ui/Form';
 
 interface Props extends User {
   onSubmit: FormEventHandler<HTMLFormElement>;
@@ -34,16 +49,16 @@ const BasicInfo = ({
 
   return (
     <Form onSubmit={onSubmit}>
-      <Form.Container>
-        <Form.Header>
-          <Form.Title>Let&apos;s get started!</Form.Title>
-          <Form.Description>
+      <FormContainer>
+        <FormHeader>
+          <FormTitle>Let&apos;s get started!</FormTitle>
+          <FormDescription>
             This information will appear on your{' '}
             <span className='font-medium'>treek</span> page.
-          </Form.Description>
-        </Form.Header>
+          </FormDescription>
+        </FormHeader>
 
-        <Form.Items>
+        <FormItems>
           <div className='flex space-x-4'>
             <Image
               alt='user profile'
@@ -55,18 +70,18 @@ const BasicInfo = ({
                 isLoading ? 'animate-pulse' : ''
               )}
             />
-            <Form.Field name='name'>
-              <Form.LabelWrapper>
-                <Form.Label>Name</Form.Label>
-                <Form.Message match='valueMissing'>
+            <FormField name='name'>
+              <FormLabelWrapper>
+                <FormLabel>Name</FormLabel>
+                <FormMessage match='valueMissing'>
                   Please provide a name
-                </Form.Message>
+                </FormMessage>
 
-                <Form.Message match='tooShort'>
+                <FormMessage match='tooShort'>
                   Your name needs to be at least 4 chars
-                </Form.Message>
-              </Form.LabelWrapper>
-              <Form.Input
+                </FormMessage>
+              </FormLabelWrapper>
+              <FormInput
                 type='text'
                 defaultValue={currentName}
                 placeholder='First Last'
@@ -74,50 +89,47 @@ const BasicInfo = ({
                 disabled={isLoading}
                 required
               />
-            </Form.Field>
+            </FormField>
           </div>
 
-          <Form.Field name='username'>
-            <Form.LabelWrapper>
-              <Form.Label htmlFor='username'>Username</Form.Label>
-              <Form.Message match='valueMissing'>
+          <FormField name='username'>
+            <FormLabelWrapper>
+              <FormLabel htmlFor='username'>Username</FormLabel>
+              <FormMessage match='valueMissing'>
                 Please provide a username
-              </Form.Message>
-              <Form.Message match='tooShort'>
+              </FormMessage>
+              <FormMessage match='tooShort'>
                 Your username needs to be at least 4 chars
-              </Form.Message>
-            </Form.LabelWrapper>
-            <Form.Username
-              defaultValue={currentUsername}
-              disabled={isLoading}
-            />
-          </Form.Field>
+              </FormMessage>
+            </FormLabelWrapper>
+            <FormUsername defaultValue={currentUsername} disabled={isLoading} />
+          </FormField>
 
-          <Form.Field name='bio'>
-            <Form.LabelWrapper>
-              <Form.Label>Bio</Form.Label>
-            </Form.LabelWrapper>
-            <Form.Textarea
+          <FormField name='bio'>
+            <FormLabelWrapper>
+              <FormLabel>Bio</FormLabel>
+            </FormLabelWrapper>
+            <FormTextarea
               className='max-h-28 min-h-[60px] w-full'
               placeholder='UI/UX Designer'
               defaultValue={currentBio}
               disabled={isLoading}
             />
-          </Form.Field>
+          </FormField>
 
-          <Form.Field name='location'>
-            <Form.LabelWrapper>
-              <Form.Label>Location</Form.Label>
-            </Form.LabelWrapper>
-            <Form.Input
+          <FormField name='location'>
+            <FormLabelWrapper>
+              <FormLabel>Location</FormLabel>
+            </FormLabelWrapper>
+            <FormInput
               type='text'
               placeholder='San Francisco, CA'
               defaultValue={currentLocation}
             />
-          </Form.Field>
-        </Form.Items>
-        <Form.Button>Continue</Form.Button>
-      </Form.Container>
+          </FormField>
+        </FormItems>
+        <FormButton>Continue</FormButton>
+      </FormContainer>
     </Form>
   );
 };

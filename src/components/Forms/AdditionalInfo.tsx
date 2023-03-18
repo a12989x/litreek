@@ -3,7 +3,20 @@ import { useSession } from 'next-auth/react';
 import { socials as socialsData } from '~/data';
 
 import { api } from '~/utils/api';
-import { Form } from '~/components/ui';
+import {
+  Form,
+  FormButton,
+  FormContainer,
+  FormDescription,
+  FormField,
+  FormHeader,
+  FormInput,
+  FormItems,
+  FormLabel,
+  FormLabelWrapper,
+  FormSecondaryButton,
+  FormTitle,
+} from '~/components/ui/Form';
 
 type Props = {
   socialsState?: { [k: string]: string };
@@ -20,19 +33,19 @@ const AdditionalInfo = ({ socialsState, onSubmit, onGoBack }: Props) => {
 
   return (
     <Form onSubmit={onSubmit}>
-      <Form.Container>
-        <Form.Header>
-          <Form.Title>Almost there!</Form.Title>
-          <Form.Description>Please add some social links.</Form.Description>
-        </Form.Header>
+      <FormContainer>
+        <FormHeader>
+          <FormTitle>Almost there!</FormTitle>
+          <FormDescription>Please add some social links.</FormDescription>
+        </FormHeader>
 
-        <Form.Items>
+        <FormItems>
           {socialsData.slice(0, 4).map(({ name, placeholder }) => (
-            <Form.Field key={name} name={name}>
-              <Form.LabelWrapper>
-                <Form.Label>{name}</Form.Label>
-              </Form.LabelWrapper>
-              <Form.Input
+            <FormField key={name} name={name}>
+              <FormLabelWrapper>
+                <FormLabel>{name}</FormLabel>
+              </FormLabelWrapper>
+              <FormInput
                 type='text'
                 placeholder={placeholder}
                 defaultValue={
@@ -42,17 +55,17 @@ const AdditionalInfo = ({ socialsState, onSubmit, onGoBack }: Props) => {
                         ?.url
                 }
               />
-            </Form.Field>
+            </FormField>
           ))}
-        </Form.Items>
+        </FormItems>
 
-        <Form.Items direction='horizontal'>
-          <Form.SecondaryButton type='button' onClick={onGoBack}>
+        <FormItems direction='horizontal'>
+          <FormSecondaryButton type='button' onClick={onGoBack}>
             Go back
-          </Form.SecondaryButton>
-          <Form.Button>Finalize</Form.Button>
-        </Form.Items>
-      </Form.Container>
+          </FormSecondaryButton>
+          <FormButton>Finalize</FormButton>
+        </FormItems>
+      </FormContainer>
     </Form>
   );
 };
