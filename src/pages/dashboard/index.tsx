@@ -10,6 +10,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       redirect: { destination: '/login', permanent: false },
     };
 
+  if (!session.user.username)
+    return { redirect: { destination: '/setup', permanent: false } };
+
   return { redirect: { destination: '/dashboard/links', permanent: false } };
 };
 
