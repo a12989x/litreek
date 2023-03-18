@@ -1,12 +1,16 @@
 import { useState, type FormEvent } from 'react';
+
 import { type GetServerSideProps, type NextPage } from 'next';
 import { useRouter } from 'next/router';
+
 import { socials as socialsData } from '~/data';
 import { type User } from '~/types';
 import { cn } from '~/utils';
 
 import { getServerAuthSession } from '~/server/auth';
+
 import { api } from '~/utils/api';
+
 import { AdditionalInfo, BasicInfo } from '~/components/Forms';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {

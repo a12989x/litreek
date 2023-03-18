@@ -2,12 +2,14 @@
 /* eslint-disable react/no-unknown-property */
 import { type AppType } from 'next/app';
 import { Inter as FontSans } from 'next/font/google';
+
 import { type Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
 
 import { api } from '~/utils/api';
 
 import '~/styles/globals.css';
+
 import { Layout } from '~/components';
 
 const fontSans = FontSans({

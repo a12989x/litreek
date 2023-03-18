@@ -1,4 +1,5 @@
 import { type NextPage } from 'next';
+
 import { Faqs, Features, Hero, Pricing } from '~/components';
 
 const Home: NextPage = () => {
