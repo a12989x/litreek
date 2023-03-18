@@ -42,8 +42,8 @@ export const Button = forwardRef<HTMLButtonElement, Props>(
   ({ intent, size, className, ...props }, ref) => {
     return (
       <button
-        className={buttonStyles({ intent, size, class: className })}
         ref={ref}
+        className={buttonStyles({ intent, size, class: className })}
         {...props}
       />
     );

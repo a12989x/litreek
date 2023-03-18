@@ -36,17 +36,17 @@ const defaultValues2 = faqs2.map(({ name }) => name);
 const Faqs = () => {
   return (
     <section
-      id='faq'
       className='mx-auto flex min-h-[600px] max-w-screen-xl scroll-mt-10 flex-col items-center py-20 px-8'
+      id='faq'
     >
       <h2 className='mb-4 text-5xl font-bold'>Frequently asked questions</h2>
       <p className='mb-8 text-2xl'>Need answers? Find them here...</p>
 
       <div className='flex w-full max-w-4xl gap-4'>
-        <Accordion type='multiple' defaultValue={defaultValues} asChild>
+        <Accordion asChild defaultValue={defaultValues} type='multiple'>
           <ul className='space-y-4'>
             {faqs.map(({ name, description }) => (
-              <AccordionItem value={name} key={name} asChild>
+              <AccordionItem key={name} asChild value={name}>
                 <li>
                   <AccordionTrigger>{name}</AccordionTrigger>
                   <AccordionContent>
@@ -58,10 +58,10 @@ const Faqs = () => {
           </ul>
         </Accordion>
 
-        <Accordion type='multiple' defaultValue={defaultValues2} asChild>
+        <Accordion asChild defaultValue={defaultValues2} type='multiple'>
           <ul className='space-y-4'>
             {faqs2.map(({ name, description }) => (
-              <AccordionItem value={name} key={name} asChild>
+              <AccordionItem key={name} asChild value={name}>
                 <li>
                   <AccordionTrigger>{name}</AccordionTrigger>
                   <AccordionContent>

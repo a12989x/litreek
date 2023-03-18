@@ -62,13 +62,13 @@ const BasicInfo = ({
           <div className='flex space-x-4'>
             <Image
               alt='user profile'
-              width={100}
-              height={100}
-              src={currentImage}
               className={cn(
                 'h-[72px] w-full max-w-[72px] rounded-full bg-gray-300',
                 isLoading ? 'animate-pulse' : ''
               )}
+              height={100}
+              src={currentImage}
+              width={100}
             />
             <FormField name='name'>
               <FormLabelWrapper>
@@ -82,12 +82,12 @@ const BasicInfo = ({
                 </FormMessage>
               </FormLabelWrapper>
               <FormInput
-                type='text'
-                defaultValue={currentName}
-                placeholder='First Last'
-                minLength={4}
-                disabled={isLoading}
                 required
+                defaultValue={currentName}
+                disabled={isLoading}
+                minLength={4}
+                placeholder='First Last'
+                type='text'
               />
             </FormField>
           </div>
@@ -111,9 +111,9 @@ const BasicInfo = ({
             </FormLabelWrapper>
             <FormTextarea
               className='max-h-28 min-h-[60px] w-full'
-              placeholder='UI/UX Designer'
               defaultValue={currentBio}
               disabled={isLoading}
+              placeholder='UI/UX Designer'
             />
           </FormField>
 
@@ -122,9 +122,9 @@ const BasicInfo = ({
               <FormLabel>Location</FormLabel>
             </FormLabelWrapper>
             <FormInput
-              type='text'
-              placeholder='San Francisco, CA'
               defaultValue={currentLocation}
+              placeholder='San Francisco, CA'
+              type='text'
             />
           </FormField>
         </FormItems>

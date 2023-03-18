@@ -18,8 +18,8 @@ const Footer = () => {
         <p>
           Litreek is a{' '}
           <Link
-            href='https://dub.sh/codingcodax'
             className='bg-gradient-to-r from-pink-900 via-indigo-900 to-purple-900 bg-clip-text font-medium text-transparent'
+            href='https://dub.sh/codingcodax'
           >
             @codingcodax
           </Link>{' '}

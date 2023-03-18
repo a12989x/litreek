@@ -41,7 +41,7 @@ const Register: NextPage = () => {
             <FormTitle>Create Account</FormTitle>
             <FormDescription>
               Already have and account?{' '}
-              <Link intent='underline' href='/login'>
+              <Link href='/login' intent='underline'>
                 Login
               </Link>
             </FormDescription>
@@ -55,7 +55,7 @@ const Register: NextPage = () => {
                   Please enter your name
                 </FormMessage>
               </FormLabelWrapper>
-              <FormInput type='email' placeholder='name@example.com' required />
+              <FormInput required placeholder='name@example.com' type='email' />
             </FormField>
 
             <FormField name='password'>
@@ -69,11 +69,11 @@ const Register: NextPage = () => {
                 </FormMessage>
               </FormLabelWrapper>
               <FormInput
-                type='password'
+                required
                 id='password'
                 minLength={5}
                 placeholder='securepassword'
-                required
+                type='password'
               />
             </FormField>
 

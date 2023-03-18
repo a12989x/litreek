@@ -18,16 +18,16 @@ const Hero = () => {
           <span>treek.link/</span>
         </div>
         <input
-          type='text'
           className='peer/input h-[44px] w-52 pr-6 text-indigo-900 caret-indigo-900 placeholder:text-gray-800 focus:outline-none'
           placeholder='yourname'
+          type='text'
         />
         <Link
-          href='/register'
           className={cn(
             buttonStyles({ intent: 'cta', size: 'large' }),
             'peer/button bg-none outline-0'
           )}
+          href='/register'
         >
           Claim{' '}
           <span className='font-normal italic'>

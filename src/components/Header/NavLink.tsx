@@ -15,11 +15,11 @@ const NavLink = ({ href, className, children }: Props) => {
   return (
     <li className={className}>
       <Link
-        href={href}
-        intent='nav'
         className={cn(
           href === asPath ? 'bg-indigo-500 hover:bg-indigo-500' : ''
         )}
+        href={href}
+        intent='nav'
       >
         {children}
       </Link>

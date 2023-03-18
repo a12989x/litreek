@@ -34,18 +34,18 @@ export const Link = forwardRef<HTMLAnchorElement, Props>(
     if (isExternal)
       return (
         <NextLink
-          target='_blank'
-          rel='noopener noreferrer'
-          className={linkStyles({ intent, className })}
           ref={forwardRef}
+          className={linkStyles({ intent, className })}
+          rel='noopener noreferrer'
+          target='_blank'
           {...props}
         />
       );
 
     return (
       <NextLink
-        className={linkStyles({ intent, className })}
         ref={forwardRef}
+        className={linkStyles({ intent, className })}
         {...props}
       />
     );

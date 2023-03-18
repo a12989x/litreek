@@ -44,8 +44,8 @@ const plans = [
 const PricingSection = () => {
   return (
     <section
-      id='pricing'
       className='mx-auto flex max-w-screen-xl scroll-mt-10 flex-col items-center py-20 px-8'
+      id='pricing'
     >
       <h2 className='mb-4 text-5xl font-bold'>Simple, transparent pricing</h2>
       <p className='mb-8 text-2xl'>

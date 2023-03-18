@@ -10,10 +10,10 @@ type Props = {
 const FormGitHubButton = ({ children }: Props) => {
   return (
     <Button
+      className='w-full space-x-2'
+      intent='ghost'
       type='button'
       onClick={() => signIn('github', { callbackUrl: '/dashboard' })}
-      intent='ghost'
-      className='w-full space-x-2'
     >
       <GitHubIcon className='h-4 w-4' /> <span>{children}</span>
     </Button>

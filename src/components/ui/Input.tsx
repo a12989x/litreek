@@ -23,8 +23,8 @@ export const Input = forwardRef<HTMLInputElement, Props>(
   ({ className, ...props }, ref) => {
     return (
       <input
-        className={inputStyles({ class: className })}
         ref={ref}
+        className={inputStyles({ class: className })}
         {...props}
       />
     );

@@ -96,9 +96,9 @@ const Setup: NextPage = () => {
 
       {step === 2 && (
         <AdditionalInfo
-          onSubmit={handleSubmitTwo}
-          onGoBack={handleGoBack}
           socialsState={socials}
+          onGoBack={handleGoBack}
+          onSubmit={handleSubmitTwo}
         />
       )}
 
@@ -106,11 +106,11 @@ const Setup: NextPage = () => {
         {steps.map((stp) => (
           <button
             key={stp}
+            disabled
             className={cn(
               'h-3 w-3 rounded-full border border-gray-700 bg-gray-400',
               stp === step ? 'bg-gray-1200 hover:bg-gray=1200 w-8' : ''
             )}
-            disabled
           />
         ))}
       </div>

@@ -11,11 +11,11 @@ type Props = {
 const PlanButton = ({ isMain, children }: Props) => {
   return (
     <Link
-      href='/register'
       className={cn(
         buttonStyles({ intent: isMain ? 'cta' : 'primary' }),
         'w-full'
       )}
+      href='/register'
     >
       {children}
     </Link>

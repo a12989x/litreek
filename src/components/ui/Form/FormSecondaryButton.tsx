@@ -12,8 +12,8 @@ const FormSecondaryButton = forwardRef<Ref, Props>(
     return (
       <FormSubmit ref={ref} asChild>
         <Button
-          intent='ghost'
           className={(cn('w-full'), className)}
+          intent='ghost'
           {...props}
         />
       </FormSubmit>

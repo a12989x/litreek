@@ -20,7 +20,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <>
-      <style jsx global>{`
+      <style global jsx>{`
         :root {
           --font-sans: ${fontSans.style.fontFamily};
         }

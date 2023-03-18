@@ -40,7 +40,7 @@ const Login: NextPage = () => {
             <FormTitle>Login</FormTitle>
             <FormDescription>
               Don&apos;t have an account?{' '}
-              <Link intent='underline' href='/register'>
+              <Link href='/register' intent='underline'>
                 Sign Up
               </Link>
             </FormDescription>
@@ -57,7 +57,7 @@ const Login: NextPage = () => {
                   Please provide a valid email
                 </FormMessage>
               </FormLabelWrapper>
-              <FormInput type='email' placeholder='name@example.com' required />
+              <FormInput required placeholder='name@example.com' type='email' />
             </FormField>
 
             <FormField name='password'>
@@ -71,10 +71,10 @@ const Login: NextPage = () => {
                 </FormMessage>
               </FormLabelWrapper>
               <FormInput
-                type='password'
-                placeholder='securepassword'
-                minLength={5}
                 required
+                minLength={5}
+                placeholder='securepassword'
+                type='password'
               />
             </FormField>
           </FormItems>

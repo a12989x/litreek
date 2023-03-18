@@ -17,7 +17,7 @@ export const ButtonOrLink = forwardRef<
 
   if (isLink)
     return (
-      <Link legacyBehavior ref={ref} href={href}>
+      <Link ref={ref} legacyBehavior href={href}>
         {content}
       </Link>
     );

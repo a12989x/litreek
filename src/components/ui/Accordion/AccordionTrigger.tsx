@@ -24,8 +24,8 @@ const AccordionTrigger = forwardRef<Ref, Props>(
           {children}
 
           <IconChevronDown
-            size={20}
             className='transition-transform ease-in-out group-data-[state=open]:rotate-180'
+            size={20}
           />
         </RadixAccordionTrigger>
       </AccordionHeader>

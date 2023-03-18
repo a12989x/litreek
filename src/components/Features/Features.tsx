@@ -37,8 +37,8 @@ const features = [
 const Features = () => {
   return (
     <section
-      id='features'
       className='mx-auto flex max-w-screen-xl scroll-mt-10 flex-col items-center py-20 px-8'
+      id='features'
     >
       <h2 className='mb-4 text-5xl font-bold'>All the features you need</h2>
       <p className='mb-8 text-2xl'>

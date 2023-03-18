@@ -20,8 +20,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
   ({ className, ...props }, ref) => {
     return (
       <textarea
-        className={textareaStyles({ class: className })}
         ref={ref}
+        className={textareaStyles({ class: className })}
         {...props}
       />
     );

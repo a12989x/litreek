@@ -23,7 +23,7 @@ import { Link } from '~/components/ui/Link';
 const DropdownMenuAccount = () => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className='group' asChild>
+      <DropdownMenuTrigger asChild className='group'>
         <Button>
           User{' '}
           <IconChevronDown
@@ -65,8 +65,8 @@ const DropdownMenuAccount = () => {
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem
-            className='w-full text-red-900 data-[highlighted]:bg-red-400'
             asChild
+            className='w-full text-red-900 data-[highlighted]:bg-red-400'
           >
             <button onClick={() => signOut({ callbackUrl: '/' })}>
               <IconLogout className='mr-2' size={20} />

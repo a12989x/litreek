@@ -46,14 +46,14 @@ const AdditionalInfo = ({ socialsState, onSubmit, onGoBack }: Props) => {
                 <FormLabel>{name}</FormLabel>
               </FormLabelWrapper>
               <FormInput
-                type='text'
-                placeholder={placeholder}
                 defaultValue={
                   socialsState
                     ? 'from state'
                     : socialsResponse?.find((social) => social.name === name)
                         ?.url
                 }
+                placeholder={placeholder}
+                type='text'
               />
             </FormField>
           ))}

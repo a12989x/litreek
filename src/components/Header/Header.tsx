@@ -37,7 +37,7 @@ const Header = () => {
           ) : (
             <>
               <li className='!ml-auto'>
-                <Link href='/login' className='hover:bg-gray-400' intent='nav'>
+                <Link className='hover:bg-gray-400' href='/login' intent='nav'>
                   Login
                 </Link>
               </li>
