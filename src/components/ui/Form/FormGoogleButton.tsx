@@ -11,7 +11,7 @@ const FormGoogleButton = ({ children }: Props) => {
   return (
     <Button
       type='button'
-      onClick={() => signIn('google', { callbackUrl: '/setup' })}
+      onClick={() => signIn('google', { callbackUrl: '/dashboard' })}
       intent='ghost'
       className='w-full space-x-2'
     >

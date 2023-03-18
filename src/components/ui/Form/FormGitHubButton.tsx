@@ -11,7 +11,7 @@ const FormGitHubButton = ({ children }: Props) => {
   return (
     <Button
       type='button'
-      onClick={() => signIn('github', { callbackUrl: '/' })}
+      onClick={() => signIn('github', { callbackUrl: '/dashboard' })}
       intent='ghost'
       className='w-full space-x-2'
     >
