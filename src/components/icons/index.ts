@@ -1,2 +1,14 @@
+export { default as DiscordIcon } from './Discord';
+export { default as FacebookIcon } from './Facebook';
 export { default as GitHubIcon } from './GitHub';
 export { default as GoogleIcon } from './Google';
+export { default as InstagramIcon } from './Instagram';
+export { default as LinkedInIcon } from './LinkedIn';
+export { default as MailIcon } from './Mail';
+export { default as PatreonIcon } from './Patreon';
+export { default as SnapchatIcon } from './Snapchat';
+export { default as SpotifyIcon } from './Spotify';
+export { default as TikTokIcon } from './TikTok';
+export { default as TwitchIcon } from './Twitch';
+export { default as TwitterIcon } from './Twitter';
+export { default as YouTubeIcon } from './YouTube';
