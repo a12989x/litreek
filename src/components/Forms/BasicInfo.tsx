@@ -1,13 +1,10 @@
 import { type FormEventHandler } from 'react';
-
 import Image from 'next/image';
-
 import { useSession } from 'next-auth/react';
 import { type User } from '~/types';
 import { cn } from '~/utils';
 
 import { api } from '~/utils/api';
-
 import {
   Form,
   FormButton,
