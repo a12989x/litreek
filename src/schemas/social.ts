@@ -4,7 +4,6 @@ export const socialSchema = z.object({
   url: z.string(),
   type: z.string(),
   name: z.string(),
-  thumbnail: z.string(),
   position: z.number(),
 });
 
