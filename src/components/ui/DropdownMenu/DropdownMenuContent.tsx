@@ -15,7 +15,7 @@ const DropdownMenuContent = forwardRef<Ref, Props>(
         <RadixDropdownMenuContent
           ref={ref}
           className={cn(
-            'z-20 min-w-[8rem] overflow-hidden rounded-lg border border-gray-600 bg-gray-100 p-1',
+            'z-20 min-w-[8rem] overflow-hidden rounded-lg border border-gray-600 bg-gray-100 p-1 shadow',
             className
           )}
           sideOffset={sideOffset}
