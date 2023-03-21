@@ -31,8 +31,13 @@ const Header = () => {
           )}
 
           {sessionData?.user ? (
-            <li className='!ml-auto'>
-              <DropdownMenuAccount />
+            <li className='!ml-auto flex'>
+              <DropdownMenuAccount
+                image={
+                  sessionData.user.image ??
+                  'https://avatar.vercel.sh/treek.link'
+                }
+              />
             </li>
           ) : (
             <>
