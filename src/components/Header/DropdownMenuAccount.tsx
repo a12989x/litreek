@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import {
-  IconChevronDown,
   IconCircleDot,
   IconEdit,
+  IconExternalLink,
   IconLogout,
   IconSettings,
   IconUser,
@@ -50,6 +50,7 @@ const DropdownMenuAccount = ({ image }: Props) => {
             <Link isExternal href='/'>
               <IconUser className='mr-2' size={20} />
               View page
+              <IconExternalLink className='ml-auto' size={20} />
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
@@ -65,6 +66,7 @@ const DropdownMenuAccount = ({ image }: Props) => {
             >
               <IconCircleDot className='mr-2' size={20} />
               Report a bug
+              <IconExternalLink className='ml-auto' size={20} />
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem
