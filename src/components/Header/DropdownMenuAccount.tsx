@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import {
   IconChevronDown,
   IconCircleDot,
@@ -8,7 +9,6 @@ import {
 } from '@tabler/icons-react';
 import { signOut } from 'next-auth/react';
 
-import { Button } from '~/components/ui/Button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,17 +20,20 @@ import {
 } from '~/components/ui/DropdownMenu';
 import { Link } from '~/components/ui/Link';
 
-const DropdownMenuAccount = () => {
+type Props = {
+  image: string;
+};
+
+const DropdownMenuAccount = ({ image }: Props) => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild className='group'>
-        <Button>
-          User{' '}
-          <IconChevronDown
-            className='ml-2 transition-transform ease-in-out group-data-[state=open]:rotate-180'
-            size={20}
-          />
-        </Button>
+      <DropdownMenuTrigger
+        asChild
+        className='group rounded-full outline-indigo-800 focus:outline'
+      >
+        <button>
+          <Image alt='user account' height={32} src={image} width={32} />
+        </button>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align='end' className='w-56'>
