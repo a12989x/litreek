@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { type GetServerSideProps, type NextPage } from 'next';
 import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
 import { socials as socialsData } from '~/data';
 import { type User } from '~/types';
 import { cn } from '~/utils';
@@ -24,6 +25,7 @@ const steps = [1, 2];
 
 const Setup: NextPage = () => {
   const router = useRouter();
+  const { data: sessionData } = useSession();
   const [step, setStep] = useState(steps[0]);
   const [user, setUser] = useState<User>({ image: '', name: '', username: '' });
   const [socials, setSocials] = useState<{ [k: string]: string }>();
@@ -33,7 +35,7 @@ const Setup: NextPage = () => {
       console.log('User succesfully updated!');
     },
     onError: () => {
-      console.log('User cannot be updated!');
+      console.error('User cannot be updated!');
     },
   });
 
@@ -46,12 +48,43 @@ const Setup: NextPage = () => {
     },
   });
 
-  const handleSubmitOne = (event: FormEvent<HTMLFormElement>) => {
+  const updateImage = (dataUrl: string) =>
+    setUser((prev) => ({ ...prev, image: dataUrl }));
+
+  const handleSubmitOne = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const data = Object.fromEntries(new FormData(event.currentTarget)) as User;
+    const { image, ...data } = Object.fromEntries(
+      new FormData(event.currentTarget)
+    ) as User & { image: File };
 
-    setUser(data);
+    if (image.name) {
+      try {
+        const formData = new FormData();
+
+        formData.append('file', image);
+        formData.append('upload_preset', 'Litreek');
+        formData.append('timestamp', (Date.now() / 1000).toString());
+
+        const res = await fetch(
+          `https://api.cloudinary.com/v1_1/codingcodax/image/upload`,
+          {
+            method: 'POST',
+            body: formData,
+          }
+        );
+
+        const { url } = (await res.json()) as { url: string };
+
+        console.log(url);
+
+        setUser((prev) => ({ ...prev, image: url }));
+      } catch (error) {
+        console.error('Something went wrong! Try it again');
+      }
+    }
+
+    setUser((prev) => ({ ...prev, ...data }));
     setStep(steps[1]);
   };
 
@@ -75,7 +108,10 @@ const Setup: NextPage = () => {
     try {
       setSocials(data);
 
-      updateUser(user);
+      updateUser({
+        ...user,
+        image: user.image ? user.image : sessionData?.user.image ?? '',
+      });
 
       socialsCreated.map((social) => {
         upsertSocial(social);
@@ -89,7 +125,13 @@ const Setup: NextPage = () => {
 
   return (
     <div className='relative mx-auto flex w-full max-w-screen-xl flex-col items-center justify-center'>
-      {step === 1 && <BasicInfo onSubmit={handleSubmitOne} {...user} />}
+      {step === 1 && (
+        <BasicInfo
+          updateImage={updateImage}
+          onSubmit={handleSubmitOne}
+          {...user}
+        />
+      )}
 
       {step === 2 && (
         <AdditionalInfo
