@@ -1,4 +1,4 @@
-import { type FormEventHandler } from 'react';
+import { type FormEvent, type FormEventHandler } from 'react';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import { type User } from '~/types';
@@ -23,6 +23,7 @@ import {
 } from '~/components/ui/Form';
 
 interface Props extends User {
+  updateImage: (dataUrl: string) => void;
   onSubmit: FormEventHandler<HTMLFormElement>;
 }
 
@@ -32,6 +33,7 @@ const BasicInfo = ({
   username,
   bio,
   location,
+  updateImage,
   onSubmit,
 }: Props) => {
   const { data: sessionData } = useSession();
@@ -47,6 +49,17 @@ const BasicInfo = ({
   const currentBio = bio ? bio : data?.bio ?? '';
   const currentLocation = location ? location : data?.location ?? '';
 
+  const handleOnChange = (event: FormEvent<HTMLInputElement>) => {
+    const reader = new FileReader();
+    reader.onload = (onLoadEvent) => {
+      updateImage(onLoadEvent.target?.result as string);
+    };
+
+    if (!event.currentTarget.files) return;
+
+    reader.readAsDataURL(event.currentTarget.files[0] as File);
+  };
+
   return (
     <Form onSubmit={onSubmit}>
       <FormContainer>
@@ -60,16 +73,31 @@ const BasicInfo = ({
 
         <FormItems>
           <div className='flex space-x-4'>
-            <Image
-              alt='user profile'
-              className={cn(
-                'h-[72px] w-full max-w-[72px] rounded-full bg-gray-300',
-                isLoading ? 'animate-pulse' : ''
-              )}
-              height={100}
-              src={currentImage}
-              width={100}
-            />
+            <div className='relative'>
+              <Image
+                alt='user profile'
+                className={cn(
+                  'h-[72px] min-w-[72px] max-w-[72px] rounded-full bg-gray-300',
+                  isLoading ? 'animate-pulse' : ''
+                )}
+                height={100}
+                src={currentImage}
+                width={100}
+              />
+              <input
+                className='hidden'
+                id='image'
+                name='image'
+                type='file'
+                onChange={handleOnChange}
+              />
+              <label
+                className='absolute right-0 bottom-0 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-indigo-900 text-gray-100'
+                htmlFor='image'
+              >
+                +
+              </label>
+            </div>
             <FormField name='name'>
               <FormLabelWrapper>
                 <FormLabel>Name</FormLabel>
