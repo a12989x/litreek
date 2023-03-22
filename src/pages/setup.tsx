@@ -76,8 +76,6 @@ const Setup: NextPage = () => {
 
         const { url } = (await res.json()) as { url: string };
 
-        console.log(url);
-
         setUser((prev) => ({ ...prev, image: url }));
       } catch (error) {
         console.error('Something went wrong! Try it again');
