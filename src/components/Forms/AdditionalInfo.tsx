@@ -53,7 +53,7 @@ const AdditionalInfo = ({ socialsState, onSubmit, onGoBack }: Props) => {
                   className={cn('w-full pl-[46px]')}
                   defaultValue={
                     socialsState
-                      ? 'from state'
+                      ? socialsState[name]
                       : socialsResponse?.find((social) => social.name === name)
                           ?.url
                   }
