@@ -9,3 +9,5 @@ export const userSchema = z.object({
 });
 
 export const updateUserSchema = userSchema.extend({});
+
+export const updateUsernameSchema = userSchema.pick({ username: true });
