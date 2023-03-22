@@ -29,6 +29,12 @@ const config = {
         port: '',
         pathname: '/*',
       },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '/codingcodax/image/upload/*',
+      },
     ],
   },
 
