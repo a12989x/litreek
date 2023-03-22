@@ -115,7 +115,7 @@ const Setup: NextPage = () => {
         upsertSocial(social);
       });
 
-      void router.push('/dashboard');
+      void router.push('/dashboard/links');
     } catch (error) {
       throw new Error('Something went wrong!');
     }
