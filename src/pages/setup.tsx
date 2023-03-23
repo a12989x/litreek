@@ -29,6 +29,7 @@ const Setup: NextPage = () => {
   const [step, setStep] = useState(steps[0]);
   const [user, setUser] = useState<User>({ image: '', name: '', username: '' });
   const [socials, setSocials] = useState<{ [k: string]: string }>();
+  const [usernameError, setUsernameError] = useState('');
 
   const { mutate: updateUser } = api.user.update.useMutation({
     onSuccess: () => {
@@ -42,9 +43,12 @@ const Setup: NextPage = () => {
   const { mutate: updateUsername } = api.user.updateUsername.useMutation({
     onSuccess: () => {
       console.log('Username succesfully updated!');
+      setUsernameError('');
+      setStep(steps[1]);
     },
     onError: () => {
       console.error('Username cannot be updated!');
+      setUsernameError('Username already taken!');
     },
   });
 
@@ -93,7 +97,6 @@ const Setup: NextPage = () => {
 
     setUser((prev) => ({ ...prev, ...data }));
     updateUsername({ username: data.username });
-    setStep(steps[1]);
   };
 
   const handleGoBack = () => {
@@ -136,6 +139,7 @@ const Setup: NextPage = () => {
       {step === 1 && (
         <BasicInfo
           updateImage={updateImage}
+          usernameError={usernameError}
           onSubmit={handleSubmitOne}
           {...user}
         />
