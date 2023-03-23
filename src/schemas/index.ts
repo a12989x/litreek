@@ -1,2 +1,2 @@
 export { socialSchema, createSocialSchema } from './social';
-export { userSchema, updateUserSchema, updateUsernameSchema } from './user';
+export { userSchema, updateUserSchema, usernameSchema } from './user';
