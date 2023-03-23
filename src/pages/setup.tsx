@@ -39,6 +39,15 @@ const Setup: NextPage = () => {
     },
   });
 
+  const { mutate: updateUsername } = api.user.updateUsername.useMutation({
+    onSuccess: () => {
+      console.log('Username succesfully updated!');
+    },
+    onError: () => {
+      console.error('Username cannot be updated!');
+    },
+  });
+
   const { mutate: upsertSocial } = api.social.upsert.useMutation({
     onSuccess: () => {
       console.log('Social succesfully updated/created!');
@@ -83,6 +92,7 @@ const Setup: NextPage = () => {
     }
 
     setUser((prev) => ({ ...prev, ...data }));
+    updateUsername({ username: data.username });
     setStep(steps[1]);
   };
 
@@ -90,7 +100,7 @@ const Setup: NextPage = () => {
     setStep(steps[0]);
   };
 
-  const handleSubmitTwo = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmitTwo = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const data = Object.fromEntries(new FormData(event.currentTarget)) as {
@@ -115,7 +125,7 @@ const Setup: NextPage = () => {
         upsertSocial(social);
       });
 
-      void router.push('/dashboard/links');
+      await router.push('/dashboard');
     } catch (error) {
       throw new Error('Something went wrong!');
     }
