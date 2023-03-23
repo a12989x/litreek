@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-
 import { Footer, Header } from '~/components';
 import { cn } from '~/utils';
 

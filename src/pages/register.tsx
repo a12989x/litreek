@@ -1,7 +1,6 @@
 import { type GetServerSideProps, type NextPage } from 'next';
 
 import { getServerAuthSession } from '~/server/auth';
-
 import {
   Form,
   FormButton,
