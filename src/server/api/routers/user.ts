@@ -29,7 +29,7 @@ const userRouter = createTRPCRouter({
         },
       });
 
-      if (username) return username;
+      return username;
     }),
 
   update: protectedProcedure
