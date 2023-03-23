@@ -1,4 +1,4 @@
-import { updateUserSchema, updateUsernameSchema } from '~/schemas';
+import { updateUserSchema, usernameSchema } from '~/schemas';
 
 import { createTRPCRouter, protectedProcedure } from '~/server/api/trpc';
 
@@ -19,6 +19,21 @@ const userRouter = createTRPCRouter({
     return user;
   }),
 
+  getByUsername: protectedProcedure
+    .input(usernameSchema)
+    .mutation(({ ctx, input }) => {
+      const username = ctx.prisma.user.findUnique({
+        where: { username: input.username },
+        select: {
+          username: true,
+        },
+      });
+
+      if(username)
+
+      return username;
+    }),
+
   update: protectedProcedure
     .input(updateUserSchema)
     .mutation(({ ctx, input }) => {
@@ -32,7 +47,7 @@ const userRouter = createTRPCRouter({
     }),
 
   updateUsername: protectedProcedure
-    .input(updateUsernameSchema)
+    .input(usernameSchema)
     .mutation(({ ctx, input }) => {
       const userId = ctx.session.user.id;
       const updateUsername = ctx.prisma.user.update({
