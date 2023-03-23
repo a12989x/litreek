@@ -23,6 +23,7 @@ import {
 } from '~/components/ui/Form';
 
 interface Props extends User {
+  usernameError: string;
   updateImage: (dataUrl: string) => void;
   onSubmit: FormEventHandler<HTMLFormElement>;
 }
@@ -33,6 +34,7 @@ const BasicInfo = ({
   username,
   bio,
   location,
+  usernameError,
   updateImage,
   onSubmit,
 }: Props) => {
@@ -126,6 +128,7 @@ const BasicInfo = ({
               <FormMessage match='valueMissing'>
                 Please provide a username
               </FormMessage>
+              {usernameError && <FormMessage>{usernameError}</FormMessage>}
               <FormMessage match='tooShort'>
                 Your username needs to be at least 4 chars
               </FormMessage>
