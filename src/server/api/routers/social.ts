@@ -16,6 +16,7 @@ const socialRouter = createTRPCRouter({
         name: true,
         thumbnail: true,
         position: true,
+        visible: true,
       },
     });
 
