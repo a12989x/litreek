@@ -7,4 +7,6 @@ export const socialSchema = z.object({
   position: z.number(),
 });
 
-export const createSocialSchema = socialSchema.extend({});
+export const createSocialSchema = socialSchema.extend({
+  visible: z.boolean().optional(),
+});
