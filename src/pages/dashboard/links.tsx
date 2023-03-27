@@ -29,6 +29,14 @@ const Links: NextPage = () => {
   const { data: socialsResponse } = api.social.getAll.useQuery(undefined, {
     enabled: sessionData?.user !== undefined,
   });
+  const { mutate: upsertSocial } = api.social.upsert.useMutation({
+    onSuccess: () => {
+      console.log('Social succesfully updated/created!');
+    },
+    onError: () => {
+      console.log('Social cannot be updated/created!');
+    },
+  });
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -37,7 +45,17 @@ const Links: NextPage = () => {
       [k: string]: string;
     };
 
-    console.log(data);
+    const socialsCreated = socialsData.map(({ baseUrl, name }, index) => ({
+      url: `${baseUrl}${data[name]?.toString() ?? ''}`,
+      type: 'social',
+      name,
+      position: index + 1,
+      visible: data[name + 'IsVisible'] === 'on' ? true : false,
+    }));
+
+    socialsCreated.map((social) => {
+      upsertSocial(social);
+    });
   };
 
   return (
