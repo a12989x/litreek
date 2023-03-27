@@ -1,3 +1,4 @@
+export { default as DashboardLayout } from './DashboardLayout';
 export { default as Faqs } from './Faqs';
 export { default as Features } from './Features';
 export { default as Footer } from './Footer';
